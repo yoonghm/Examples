@@ -1,3 +1,7 @@
+# Issue: https://github.com/psycopg/psycopg2/issues/491#issuecomment-269828979
+# executemany is slow in inserting many rows
+# executemany2 is a new variance to improve the speed
+
 import os
 import time
 import psycopg2
