@@ -2,10 +2,17 @@
 
 node-postgres is an non-blocking PostgreSQL client for node.j, with pure JavaScript and optional native libpq bindings
 
-## Installation
+## Install nodejs
 
 ```sh
-sudp apt install npm
+$ sudo apt install nodejs
+```
+
+## Create Examples Directory
+
+```sh
+$ mkdir ~/pg
+$ cd ~/pg
 $ npm install pg
 ```
 
@@ -13,18 +20,28 @@ $ npm install pg
 
 ```js
 var pg = require('pg');
-var client = new pg.Client(); // Use default environment variables
+var client = new pg.Client();
 
 client.connect(function (err) {
   if (err) {
-    console.error('Error connect to PostgreSQL');
+    console.error('connect:' + err);
+    throw err;
   }
-  // execute a query on our database
+
   client.query('SELECT version()', function (err, result) {
     if (err) {
-      console.error('query error');
+      console.error('query:' + err);
+      throw err;
     }
+
     console.log(result.rows[0]);
+
+    client.end(function (err) {
+      if (err) {
+        console.error('end:' + err);
+        throw err;
+      }
+    });
   });
 });
 ```
@@ -32,7 +49,7 @@ client.connect(function (err) {
 Running the program, assuming PostgreSQL database is running
 
 ```sh
-nodejs
+nodejs helloworld.js
 ```
 
 ### ```pool.js``` - Pool of client connections to PostgreSQL database
