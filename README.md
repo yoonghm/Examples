@@ -49,26 +49,41 @@ client.connect(function (err) {
 Running the program, assuming PostgreSQL database is running
 
 ```sh
-nodejs helloworld.js
+$ nodejs helloworld.js
+
+{ version: 'PostgreSQL 9.6.1 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609, 64-bit' }
 ```
 
 ### ```pool.js``` - Pool of client connections to PostgreSQL database
 
 ```js
 var pg = require('pg');
-var pool = new pg.Pool(); // Use default environment variables
+var pool = new pg.Pool();
 
-// Get a client and do something
-pool.connect(function(err, client, done) {
+// Get a client from the pool
+pool.connect(function (err, client, done) {
   if (err) {
-    console.error('Error connect to PostgreSQL via pool');
+    console.error('connect:' + err);
+    throw err;
   }
-  client.query('SELECT version()', function(err, result) {
-    done(); // release the client to pool
+
+  client.query('SELECT now()', function (err, result) {
     if (err) {
-      console.error('query error');
+      console.error('query:' + err);
+      throw err;
     }
+
     console.log(result.rows[0]);
   });
+
+  client.release(); // release the client to pool
 });
+
+pool.end();
+```
+
+```sh
+$ nodejs pool.js
+
+{ now: Sat Jan 21 2017 00:43:45 GMT+0800 (SGT) }
 ```
