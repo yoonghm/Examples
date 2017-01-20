@@ -5,10 +5,11 @@ node-postgres is an non-blocking PostgreSQL client for node.j, with pure JavaScr
 ## Installation
 
 ```sh
+sudp apt install npm
 $ npm install pg
 ```
 
-### Example 1: Query PostgreSQL database version
+### ```helloworld.js``` - Query PostgreSQL database version
 
 ```js
 var pg = require('pg');
@@ -28,7 +29,13 @@ client.connect(function (err) {
 });
 ```
 
-### Example 2: Pool of client connections to PostgreSQL database
+Running the program, assuming PostgreSQL database is running
+
+```sh
+nodejs
+```
+
+### ```pool.js``` - Pool of client connections to PostgreSQL database
 
 ```js
 var pg = require('pg');
