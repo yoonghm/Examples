@@ -1,6 +1,1 @@
-Update Anaconda
-===============
-
-```shell
-conda upgrade --prefix <path_to_Anaconda_root_directory> anaconda
-```
+Documentation and codes for python, mainly using Anaconda distribution.
