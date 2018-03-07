@@ -3,7 +3,7 @@
 import logging
 
 # The default logging level s WARNING
-logging.debug   ('This is programmer only' ) # Will not be printed out
+logging.debug   ('This is for programmer'  ) # Will not be printed out
 logging.info    ('This is for information' ) # Will not be printed out
 logging.warning ('This is a warning!'      ) # Will     be printed out
 logging.error   ('This is a software error') # Will     be printed out
