@@ -9,12 +9,12 @@ str = 'It says, "How are you today?"'
 print(str)
 print()
 
-str = '''
-This is a very long text and spans several lines.
+str = '''This is a very long text and spans several lines.
 This is another line.
 And, this is another line.
 '''
-print(str)
+print("str =", str)
+print("str.splitlines() =", str.splitlines())
 print()
 
 # Unicode
@@ -22,4 +22,3 @@ print()
 str = "世界你好"
 print(str, "has", len(str), "characters.")
 print(str, "occupies", len(str.encode('utf8')), "bytes.")
-
