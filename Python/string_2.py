@@ -41,7 +41,7 @@ print()
 
 str5 = 'ID:Name:Company:Address:Postcode:Country'
 print('Field-separated data:', str5)
-fields = str5.rsplit(':')
+fields = str5.split(':')
 print('2nd field =', fields[1])
 print('4th field =', fields[3])
 print()
