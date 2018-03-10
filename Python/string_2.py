@@ -46,3 +46,9 @@ print('2nd field =', fields[1])
 print('4th field =', fields[3])
 print()
 
+str6 = ' '*4 + 'Hi' + ' '*4
+print('len(', str6, ') =', len(str6))
+print('"', str6, '"', '.rstrip().lstrip() gives "', str6.rstrip().lstrip(), '"', sep="")
+print('"', str6, '"', '.strip()           gives "', str6.strip(), '"', sep="")
+print()
+
