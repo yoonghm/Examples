@@ -27,7 +27,6 @@ int main()
   fd = open("./database.db", O_RDWR|O_CREAT|O_TRUNC, 0644);
   if (fd<0) {
     perror("open(): ");
-    close(fd);
     return(-1);
   }
 
