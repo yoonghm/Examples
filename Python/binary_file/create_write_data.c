@@ -1,4 +1,4 @@
-/* write_data.c */
+/* create_write_data.c */
 
 #include <sys/types.h>
 #include <sys/stat.h>
