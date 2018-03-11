@@ -38,7 +38,7 @@ int main()
 
   for (int i=0; i<n; i++) {
     ssize_t ret = write(fd, (const char *) &db[i], ReSz);
-    if (ret == -1) {
+    if (ret == ReSz) {
       perror("write(): ");
       close(fd);
       return(-1);
