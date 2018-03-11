@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-I.
 
-PROG=check_hole create_write_data read_data
+PROG=check_hole create_write_data read_data write_data
 all: $(PROG)
 
 %.o: %.c
