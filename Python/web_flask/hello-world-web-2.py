@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
 # hello-world-web-2.py
+# 
+# This example uses add_url_rule() instead of decorator 
+# to bind URL to view function
+#
 
 from flask import Flask
 
