@@ -3,7 +3,7 @@
 # dynamic-route-1.py
 #
 # URL is matched using pattern matching 
-# and variables
+# and variable
 #
 
 from flask import Flask
