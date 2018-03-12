@@ -15,9 +15,9 @@ def index():
   return '<h1>Hello World!</h1>'
 
 @app.route('/user/id/<int:user_id>')
-def id(name):
+def id(user_id):
   # Get user name from database va user_id
-  return '<h1>Hello, user with id: {}!</h1>'.format(name)
+  return '<h1>Hello, user with id: {}!</h1>'.format(user_id)
 
 if __name__ == '__main__':
   app.run()
