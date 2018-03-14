@@ -1,10 +1,10 @@
 # Jupyter Tips
 
-## Changing Default's Indentation
+## Changing Default Indentation
 
 Enter the following snippet in the browser's JavaScript console once.
 
-```javascript
+```JavaScript
 var cell = Jupyter.notebook.get_selected_cell();
 var config = cell.config;
 var patch = {
@@ -15,4 +15,19 @@ var patch = {
 config.update(patch)
 ```
 
-Then reload the notebook. This setting persists until the next run of the snippet.
+Then reload the notebook. This setting is persistent.
+
+## Restore Default Indentation
+
+Enter the following snippet in the browser's JavaScript console once:
+
+```JavaScript
+var cell = Jupyter.notebook.get_selected_cell();
+var config = cell.config;
+var patch = {
+      CodeCell:{
+        cm_config:{indentUnit: null} // only change here.
+      }
+    }
+config.update(patch)
+```
