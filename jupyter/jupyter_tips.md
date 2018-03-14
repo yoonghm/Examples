@@ -1,6 +1,6 @@
 # Jupyter Tips
 
-## Changhing Default's Indentation
+## Changing Default's Indentation
 
 Enter the following snippet in the browser's JavaScript console once.
 
