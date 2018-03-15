@@ -2,7 +2,7 @@ import time
 import functools
 
 def clock(func):
-  @functools.wraps(func)
+  @functools.wraps(func)  ## copy function name, docstring, arguments list
   def clocked(*args, **kwargs):
     t0 = time.time()
     result = func(*args, **kwargs)
