@@ -26,7 +26,11 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
   **M**   - move cursor to the middle line of window<br />
  *n***H**  - move cursor to the *n* lines from **H**ead<br />
  *n***L**  - move cursor to the *n* lines form **B**ottom<br />
- *n*<b>|</b>  -
+ *n*<b>|</b>  - move cursor to column *n* of current line<br />
+ *n***G**  - move cursor to line *n*, default the last line
+ *n*<b>%</b>  - move cursor to percentage *n* of the file
+ **^**     - move cursor to the beginning of current line
+ **$**     - move cursor to the end of current line
   
   
 - **Edit mode**
