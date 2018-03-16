@@ -26,7 +26,7 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
   **M**   - move cursor to the middle line of window<br />
  *n***H**  - move cursor to the *n* lines from **H**ead<br />
  *n***L**  - move cursor to the *n* lines form **B**ottom<br />
- *n***|**  -
+ *n*<b>|</b>  -
   
   
 - **Edit mode**
