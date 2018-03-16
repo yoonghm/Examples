@@ -14,21 +14,34 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
 
 - **Command mode**
   User can enter into command mode by pressing one or more *ESC* key.<br />
-  Any input is considered as command. 
+  The following commands (not exhaustive)
+  **h**   - move cursor to the left<br />
+  **l**   - move cursor to the right<br />
+  **j**   - move cursor to the down<br />
+  **k**   - move cursor to the up<br />
+  **b**   - move cursor to the beginning of the word on the left<br />
+  **w**   - move cursor to the end of the word on the right<br />
+  **{**   - move cursor to the beginning of the previous paragraph<br />
+  **}**   - move cursor to the end of the previous paragraph<br />
+  **M**   - move cursor to the middle line of window<br />
+ *n***H**  - move cursor to the *n* lines from **H**ead<br />
+ *n***L**  - move cursor to the *n* lines form **B**ottom<br />
+ *n***|**  -
+  
   
 - **Edit mode**
   User can enter into edit mode by pressing <br />
-  *i*   - **i**nsert before cursor<br />
-  *a*   - **a**pend after cursor<br />
-  *I*   - **I**nsert at the beginning of current line<br />
-  *A*   - **A**pend after the end of current line<br />
-  *o*   - **o**pen a new line below current line<br />
-  *O*   - **O**pen a new line above current line<br />
-  *r*   - **r**place current character with the next input input character<br />
-  *R*   - **R**place current characters onwards with the next input characters<br />
+  **i**   - **i**nsert before cursor<br />
+  **a**   - **a**pend after cursor<br />
+  **I**   - **I**nsert at the beginning of current line<br />
+  **A**   - **A**pend after the end of current line<br />
+  **o**   - **o**pen a new line below current line<br />
+  **O**   - **O**pen a new line above current line<br />
+  **r**   - **r**eplace current character with the next input input character<br />
+  **R**   - **R**eplace current characters onwards with the next input characters<br />
   *c*M  - **c**hange character in the M-direction with the next input character<br />
           M could be<br />
             *^* (beginning of current line)<br />
             *$* (end of current line)<br />
                     
-  *C
+  *C*   - Change to the end of line
