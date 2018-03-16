@@ -31,7 +31,8 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
  *n*<b>%</b>  - move cursor to percentage *n* of the file<br />
  **^**     - move cursor to the beginning of current line<br />
  **$**     - move cursor to the end of current line<br />
-  
+ **dd**    - delete current line
+ *n***d**  - delete *n* line below current line 
   
 - **Edit mode**<br />
   User can enter into edit mode by pressing <br />
@@ -47,5 +48,15 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
           M could be<br />
             *^* (beginning of current line)<br />
             *$* (end of current line)<br />
-                    
   *C*   - Change to the end of line
+
+- **Ex mode**<br />
+  User can execute more powerful commands by entering **:** from **command mode**<br />
+  **:w**   - Save current file (aka edit buffer) to disk
+  **:q!**  - Discard current changes to the file and exit
+  **:e!**  - Revert to content stored in the file
+  **:wq**  - Save current file (with the file name used during open) to disk and quit
+  **:wq** *name*  - Save current file to *name* to disk and quit
+  **:w** *name*   - Save current file to *name* to disk
+  
+  
