@@ -12,7 +12,7 @@ The first editor available to Unix is **ed** which allowed user to view and edit
 
 Text-based vi/vim editor does not provide menu items nor toolbar icons to interact with user. These editors offer 3 modes to accept inputs from users
 
-- **Command mode**
+- **Command mode**<br />
   User can enter into command mode by pressing one or more *ESC* key.<br />
   The following commands (not exhaustive)
   **h**   - move cursor to the left<br />
@@ -33,7 +33,7 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
  **$**     - move cursor to the end of current line<br />
   
   
-- **Edit mode**
+- **Edit mode**<br />
   User can enter into edit mode by pressing <br />
   **i**   - **i**nsert before cursor<br />
   **a**   - **a**pend after cursor<br />
