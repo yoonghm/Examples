@@ -21,14 +21,30 @@ vi file1 file2
 Edit one or more files by providing the file names, separated by one or more spaces to `vi`
 
 ```
-vi -R file
-```
-Open file for reading only
-
-```
 vi +n file
 ```
-Open file at line number *n*
+Open *file* at line number *n*
+
+```
+vi + file
+```
+Open *file* at last line
+
+```
+vi +/pattern file
+```
+Open *file* at first occurrence of *pattern*
+
+```
+vi -R file
+```
+Open *file* for reading only
+
+```
+vi -r
+```
+Recover file(s) after a crash
+
 
 ## Various Modes Available in vi/vim
 
