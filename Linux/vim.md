@@ -103,8 +103,8 @@ These editors offer 3 modes to accept inputs from users:
 | **O**         | Open a new line above current line                     |
 | **r**         | Replace current character with next input              |
 | **R**         | Replace current character onwards with next input      |
-| *c*M          | Change character in the M-direction with next input<br />M could be<br />*^* (beginning of current line)<br />*$* (end of current line)<br />|
-| *C*           | Change to the end of line                              |
+| **c***M*      | Change character in the *M*-direction with next input<br />*M* could be<br />*^* (beginning of current line)<br />*$* (end of current line)<br />|
+| **C**         | Change to the end of line                              |
 
 ### Ex Mode
 
