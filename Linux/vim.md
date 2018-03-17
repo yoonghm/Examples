@@ -58,7 +58,7 @@ These editors offer 3 modes to accept inputs from users:
 | *n***l**      | Cursor to the right *n* times                          |
 | *n***j**      | Cursor to the down *n* times                           |
 | *n***k**      | Cursor to the up *n* times                             |
-| *n***b**      | Cursor to the **b**eginning of current or previous *n* word(s)        |
+| *n***b**      | Cursor to the **b**eginning of current or previous *n* word(s)|
 | *n***B**      | Cursor to the **b**eginning of current or previous *n* word(s), ignoring punctuation|
 | *n***e**      | Cursor to the **e**nd of current or next *n* word(s)   |
 | *n***E**      | Cursor to the **e**nd of current or next *n* word(s), ignoring punctuation|
@@ -102,10 +102,10 @@ These editors offer 3 modes to accept inputs from users:
 | **z**+*ENTER* | Move current line to top of screen and scroll          |
 | **z.**        | Move current line to center of screen and scroll       |
 | **z-**        | Move current line to bottom of screen and scroll       |
-
-####
 | *CTRL*+**L**  | Redraw the screen                                      |
-
+| *ENTER*       | Move to first character of next line                   |
+| **++**        | Move to first character of next line                   |
+| **-**         | Move to first character of prvious line                |
 
 ### Edit Mode
 
