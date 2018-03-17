@@ -57,10 +57,11 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
 | **p**         | Paste after current cursor                             |
 | **P**         | Paster before current cursor                           |
 | **m***a*      | Mark current position as *a*                           |
-| **marks**      | Display active bookmarks                               |
+| **marks**     | Display active bookmarks                               |
 | <b>\`</b>*a*  | Jump to bookmark *a*                                   |
 | <b>y\`</b>*a* | Yank text until bookmark *a*                           |
 | <b>d\`</b>*a* | Delete from current character toward bookmark *a*      |
+| **.**         | Repeat the last command                                |
 
 ### Edit Mode
 
@@ -95,12 +96,55 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
 ## Search and Replace Examples
 
 ```
-%s/foo/bar/
+:s/foo/bar/g
 ```
-In all lines, search and replace *first* occurence of 'foo' to 'bar'
+Search and replace *each* occurence of 'foo' to 'bar' in current line.
 
 ```
-%s/foo/bar/g
+:%s/foo/bar/
 ```
-In all lines, search and replace *each* occurence of 'foo' to 'bar'
- 
+In all lines, search and replace *first* occurence of 'foo' to 'bar'.
+
+```
+:%s/foo/bar/g
+```
+In all lines, search and replace *each* occurence of 'foo' to 'bar'.
+
+```
+:%s/foo/bar/gc
+```
+In all lines, search and replace *each* occurence of 'foo' to 'bar',but ask for confirmation in each case.
+
+```
+:%s/foo/bar/gci
+```
+In all lines, search by ignoring case sensitive, and replace *each* occurence of 'foo' to 'bar', but ask for confirmation in each case.<br />
+`:%s/foor\c/bar/gc` has the same effect.<br />
+Alternatively use `:set ignorecase` before running the command `%s/foo/bar/gc`.
+
+```
+:%s/foo/bar/gcI
+```
+In all lines, search by case sensitive, and replace *each* occurence of 'foo' to 'bar', but ask for confirmation in each case.<br />
+`:%s/foor\C/bar/gc` has the same effect.<br />
+Alternatively use `:set noignorecase` before running the command `%s/foo/bar/gc`.
+
+```
+:5,12s/foo/bar/g
+```
+Search and replace *each* occurence of 'foo' to 'bar' from line 5 to line 12 (inclusive).
+
+```
+:`a,`bs/foo/bar/g
+```
+Search and replace *each* occurence of 'foo' to 'bar' from bookmark *a* to bookmark *b* (inclusive)
+
+```
+:.,`bs/foo/bar/g
+```
+Search and replace *each* occurence of 'foo' to 'bar' from current line to bookmark *b* (inclusive)
+
+```
+:.,$s/foo/bar/g
+```
+Search and replace *each* occurence of 'foo' to 'bar' from current line to the last line (inclusive).
