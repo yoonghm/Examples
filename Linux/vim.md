@@ -4,35 +4,61 @@
 
 **vim** is the **im**proved version of **vi**. **vi** stands for **vi**sual editor, is the De facto full-screen text editor came with every distribution of Unix and Linux operating systems.
 
-vim offers better features than the original vi editor. It is distributed in all modern Unix and Linux operating systems.
+vim offers better features than the original vi. It is distributed in all modern Unix and Linux operating systems.
 
-The first editor available to Unix is **ed** which allowed user to view and edit one line of text a time.  Hence vi/vim, full-screen text editor, was a consider a visual editor at that time.
+The first editor available to Unix is **ex** which allowed user to view and edit one line of text a time.  Hence vi/vim, full-screen text editor, was a consider a visual editor at that time.
 
 ## Usage
 
-Text-based vi/vim editor does not provide menu items nor toolbar icons to interact with user. These editors offer 3 modes to accept inputs from users
+Start vi/vim by enter
+
+```
+vi
+```
+
+Edit one or more files by providing the file names, separated by one or more spaces to `vi`
+
+```
+vi file1 file2
+```
+
+Open a file for reading only
+
+```
+vi -R file
+```
+
+## Various Modes Available in vi/vim
+
+Text-based vi/vim does not provide menu items nor toolbar icons to interact with user.
+
+vi commands are case sensitive.
+
+These editors offer 3 modes to accept inputs from users:
 
 1. **Command mode**
-    - Users enter document-editing commands to vi/vim editor
     - Users enter this mode by hitting one or more *ESC* key
+    - Users enter document-editing commands to vi/vim
+    - These commands are accepted by vi/vim without *ENTER*
 
 2. **Edit mode**
-    - Users enter this mode by using one of the edit command as shown in the [edit mode table](#edit-mode).
-    - Users edit their documents in this mode
+    - Users enter this mode by using any one of the edit commands as shown in the [edit mode table](#edit-mode)
 
 3. **Ex mode**
     - Users enter this mode by entering "**:**" or "**/**"
-    - User could enter extensive command to vi/vim editor
+    - User could enter extensive command to vi/vim
+    - These commands are only accepted by vi/vim if they are followed by *ENTER*
 
 ### Command Mode
 
 | **Command**   | **Description**                                        |
 |:-------------:|:-------------------------------------------------------|
+| **0**         | Move cursor to the beginning of current line           |
 | **h**         | Move cursor to the left                                |
 | **l**         | Move cursor to the right                               |
 | **j**         | move cursor to the down                                |
 | **k**         | Move cursor to the up                                  |
-| **b**         | Move cursor to the beginning of the word on the left   |
+| **b**         | Move cursor to the beginning previous word             |
 | **w**         | Move cursor to the end of the word on the right        |
 | **{**         | Move cursor to the beginning of the previous paragraph |
 | **}**         | Move cursor to the end of the previous paragraph       |
@@ -62,6 +88,7 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
 | <b>y\`</b>*a* | Yank text until bookmark *a*                           |
 | <b>d\`</b>*a* | Delete from current character toward bookmark *a*      |
 | **.**         | Repeat the last command                                |
+| **ZZ**        | Save changes and exit                                  |
 
 ### Edit Mode
 
@@ -82,7 +109,9 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
 
 | **Command**   | **Description**                                        |
 |:-------------:|:-------------------------------------------------------|
-| **:w**        | Save file (aka edit buffer)                            |
+| **:w**        | Save file                                              |
+| **:w!**       | Save to the existing file                              |
+| **:w** *name* | Save to file *name*                                    |
 | **:q!**       | Discard changes to the file and exit                   |
 | **:e**        | Reopen the file                                        |
 | **:e!**       | Discard changes and reopen the file                    |
@@ -90,8 +119,14 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
 | **:wq** *name*| Save a copy of file to *name* and quit                 |
 | **:w** *name* | Save a copy to of file to *name*                       |
 | **:o** *name* | Open file *name*                                       |
+| **:rew**      | Open previous file                                     |
+| **:n**        | Open next file given in argument to vi/vim             |
+| **:!***cmd*   | Execute shell command *cmd*                            |
+| **:r**        | Append content of current file                         |
+| **:r** *!cmd* | Append the output from shell command *cmd*             |
 | <b>/</b>*pattern* | Search *pattern*                                   |
 | <b>?</b>*pattern* | Search backward for *pattern*                      |
+
 
 ## Search and Replace Examples
 
