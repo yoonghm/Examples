@@ -24,7 +24,7 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
     - Users enter this mode by entering "**:**" or "**/**"
     - User could enter extensive command to vi/vim editor
 
-## Command Mode
+### Command Mode
 
 | **Command**   | **Description**                                        |
 |:-------------:|:-------------------------------------------------------|
@@ -62,7 +62,7 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
 | <b>y\`</b>*a* | Yank text until bookmark *a*                           |
 | <b>d\`</b>*a* | Delete from current character toward bookmark *a*      |
 
-## Edit Mode
+### Edit Mode
 
 | **Command**   | **Description**                                        |
 |:-------------:|:-------------------------------------------------------|
@@ -77,7 +77,7 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
 | *c*M          | Change character in the M-direction with next input<br />M could be<br />*^* (beginning of current line)<br />*$* (end of current line)<br />|
 | *C*           | Change to the end of line                              |
 
-## Ex Mode
+### Ex Mode
 
 | **Command**   | **Description**                                        |
 |:-------------:|:-------------------------------------------------------|
@@ -92,3 +92,11 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
 | <b>/</b>*pattern* | Search *pattern*                                   |
 | <b>?</b>*pattern* | Search backward for *pattern*                      |
 
+## Search and Replace Examples
+
+`%s/foo/bar/`
+    In all lines, search and replace *first* occurence of 'foo' to 'bar'
+
+`%s/foo/bar/g`
+    In all lines, search and replace *each* occurence of 'foo' to 'bar'
+ 
