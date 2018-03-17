@@ -95,8 +95,8 @@ Text-based vi/vim editor does not provide menu items nor toolbar icons to intera
 ## Search and Replace Examples
 
 `%s/foo/bar/`
-    In all lines, search and replace *first* occurence of 'foo' to 'bar'
+In all lines, search and replace *first* occurence of 'foo' to 'bar'
 
 `%s/foo/bar/g`
-    In all lines, search and replace *each* occurence of 'foo' to 'bar'
+In all lines, search and replace *each* occurence of 'foo' to 'bar'
  
