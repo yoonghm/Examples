@@ -10,23 +10,25 @@ The first editor available to Unix is **ex** which allowed user to view and edit
 
 ## Usage
 
-Start vi/vim by enter
-
 ```
 vi
 ```
-
-Edit one or more files by providing the file names, separated by one or more spaces to `vi`
+Start vi/vim by enter
 
 ```
 vi file1 file2
 ```
-
-Open a file for reading only
+Edit one or more files by providing the file names, separated by one or more spaces to `vi`
 
 ```
 vi -R file
 ```
+Open file for reading only
+
+```
+vi +n file
+```
+Open file at line number *n*
 
 ## Various Modes Available in vi/vim
 
@@ -45,7 +47,7 @@ These editors offer 3 modes to accept inputs from users:
     - Users enter this mode by using any one of the edit commands as shown in the [edit mode table](#edit-mode)
 
 3. **Ex mode**
-    - Users enter this mode by entering "**:**" or "**/**"
+    - Users enter this mode by entering "**:**", "**/**" or "**?**"
     - User could enter extensive command to vi/vim
     - These commands are only accepted by vi/vim if they are followed by *ENTER*
 
@@ -53,27 +55,35 @@ These editors offer 3 modes to accept inputs from users:
 
 | **Command**   | **Description**                                        |
 |:-------------:|:-------------------------------------------------------|
-| **0**         | Cursor to the beginning of current line                |
-| *n***h**      | Cursor to the left *n* times                           |
-| *n***l**      | Cursor to the right *n* times                          |
-| *n***j**      | Cursor to the down *n* times                           |
-| *n***k**      | Cursor to the up *n* times                             |
-| *n***b**      | Cursor to the **b**eginning of current or previous *n* word(s)|
-| *n***B**      | Cursor to the **b**eginning of current or previous *n* word(s), ignoring punctuation|
-| *n***e**      | Cursor to the **e**nd of current or next *n* word(s)   |
-| *n***E**      | Cursor to the **e**nd of current or next *n* word(s), ignoring punctuation|
-| *n***w**      | Cursor to the beginning of next *n* **w**ord(s)        |
-| *n***W**      | Cursor to the beginning of next *n* **w**ord(s), ignoring punctuation|
-| **{**         | Cursor to the beginning of the previous paragraph      |
-| **}**         | Cursor to the end of the previous paragraph            |
-| *n***H**      | Cursor to the *n* lines below top line of the screen   |
-| **M**         | Cursor to the middle line of screen                    |
-| *n***L**      | Cursor to the *n* lines above last line of the screen  |
-| *n*<b>\|</b>  | Cursor to column *n* of current line                   |
-| *n***G**      | Cursor to line *n*, default the last line              |
-| *n*<b>%</b>   | Cursor to percentage *n* of the file                   |
-| **^**         | Cursor to the beginning of current line                |
-| **$**         | Cursor to the end of current line                      |
+| **0**         | Move to beginning of current line                      |
+| *n***h**      | Move left *n* times                                    |
+| *n***l**      | Move right *n* times                                   |
+| *n***j**      | Move down *n* times                                    |
+| *n***k**      | Move up *n* times                                      |
+| *n***b**      | Move to **b**eginning of current or previous *n* word(s)|
+| *n***B**      | Move to **b**eginning of current or previous *n* word(s), ignoring punctuation|
+| *n***e**      | Move to **e**nd of current or next *n* word(s)         |
+| *n***E**      | Move to **e**nd of current or next *n* word(s), ignoring punctuation|
+| *n***w**      | Move to beginning of next *n* **w**ord(s)              |
+| *n***W**      | Move to beginning of next *n* **w**ord(s), ignoring punctuation|
+| **(**         | Move to beginning of current sentence                  |
+| **)**         | Move to beginning of next sentence                     |
+| **{**         | Move to beginning of previous paragraph                |
+| **}**         | Move to end of previous paragraph                      |
+| **[[**        | Move to beginning of previous section                  |
+| **]]**        | Move to end of previous section                        |
+| *n***H**      | Move to *n* lines below top line of the screen         |
+| **M**         | Move to middle line of screen                          |
+| *n***L**      | Move to *n* lines above last line of the screen        |
+| *n*<b>\|</b>  | Move to *n* character of current line                  |
+| *ENTER*       | Move to first character of next line                   |
+| **++**        | Move to first character of next line                   |
+| **-**         | Move to first character of prvious line                |
+| **^**         | Move to first nonblank character of current line       |
+| *n***G**      | Move to line *n*, default the last line                |
+| *n*<b>%</b>   | Move to percentage *n* of the file                     |
+| **^**         | Move to beginning of current line                      |
+| **$**         | Move to end of current line                            |
 | **x**         | Delete current character                               |
 | **dd**        | Delete current line                                    |
 | **dw**        | Delete from currect character to end of word           |
@@ -88,24 +98,26 @@ These editors offer 3 modes to accept inputs from users:
 | **P**         | Paste before current cursor                            |
 | **m***a*      | Mark current position as *a*                           |
 | **marks**     | Display active bookmarks                               |
-| <b>\`</b>*a*  | Jump to bookmark *a*                                   |
-| <b>y\`</b>*a* | Yank text until bookmark *a*                           |
-| <b>d\`</b>*a* | Delete from current character toward bookmark *a*      |
+| **''**        | Return to beginning of previous mark or context        |
+| **\`\`**      | Return to exact position of previous mark or context   |
+| <b>\`</b>*x*  | Jump to bookmark *x*                                   |
+| <b>y\`</b>*x* | Yank text until bookmark *x*                           |
+| <b>d\`</b>*x* | Delete from current character toward bookmark *x*      |
 | **ZZ**        | Save changes and exit                                  |
 | **~**         | Toggle case of current character and forward cursor    |
-| **J**         | Join current line with the next line                   |
+| **J**         | Join current line with next line                       |
 | **.**         | Repeat the last command                                |
 | *CTRL*+**F**  | Scroll forward one screen                              |
 | *CTRL*+**B**  | Scroll backward one screen                             |
 | *CTRL*+**D**  | Scroll forward half screen                             |
 | *CTRL*+**U**  | Scroll backward half screen                            |
+| *CTRL*+**E**  | Scroll forward one line                                |
+| *CTRL*+**Y**  | Scroll backward one line                               |
 | **z**+*ENTER* | Move current line to top of screen and scroll          |
 | **z.**        | Move current line to center of screen and scroll       |
 | **z-**        | Move current line to bottom of screen and scroll       |
 | *CTRL*+**L**  | Redraw the screen                                      |
-| *ENTER*       | Move to first character of next line                   |
-| **++**        | Move to first character of next line                   |
-| **-**         | Move to first character of prvious line                |
+| *CTRL*+**G**  | Display line number, total number of lines, etc        |
 
 ### Edit Mode
 
@@ -125,6 +137,8 @@ These editors offer 3 modes to accept inputs from users:
 | **C**         | Change current line from current character             |
 | **s**         | Delete current character and substitute text           |
 | **S**         | Change entire line                                     |
+| **n**         | Repeat search in the same direction                    |
+| **N**         | Repeat search in opposite direction                    |
 
 ### Ex Mode
 
