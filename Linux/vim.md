@@ -60,15 +60,15 @@ These editors offer 3 modes to accept inputs from users:
 | *n***k**      | Cursor to the up *n* times                             |
 | *n***b**      | Cursor to the **b**eginning of current or previous *n* word(s)        |
 | *n***B**      | Cursor to the **b**eginning of current or previous *n* word(s), ignoring punctuation|
-| *n***e**      | Cursor to the **e**nd of current or next *n* word(s)            |
+| *n***e**      | Cursor to the **e**nd of current or next *n* word(s)   |
 | *n***E**      | Cursor to the **e**nd of current or next *n* word(s), ignoring punctuation|
-| *n***w**      | Cursor to the beginning of next *n* **w**ord(s)            |
+| *n***w**      | Cursor to the beginning of next *n* **w**ord(s)        |
 | *n***W**      | Cursor to the beginning of next *n* **w**ord(s), ignoring punctuation|
 | **{**         | Cursor to the beginning of the previous paragraph      |
 | **}**         | Cursor to the end of the previous paragraph            |
-| **M**         | Cursor to the middle line of window                    |
-| *n***H**      | Cursor to the *n* lines from **H**ead                  |
-| *n***L**      | Cursor to the *n* lines form **B**ottom                |
+| *n***H**      | Cursor to the *n* lines below top line of the screen   |
+| **M**         | Cursor to the middle line of screen                    |
+| *n***L**      | Cursor to the *n* lines above last line of the screen  |
 | *n*<b>\|</b>  | Cursor to column *n* of current line                   |
 | *n***G**      | Cursor to line *n*, default the last line              |
 | *n*<b>%</b>   | Cursor to percentage *n* of the file                   |
@@ -91,9 +91,21 @@ These editors offer 3 modes to accept inputs from users:
 | <b>\`</b>*a*  | Jump to bookmark *a*                                   |
 | <b>y\`</b>*a* | Yank text until bookmark *a*                           |
 | <b>d\`</b>*a* | Delete from current character toward bookmark *a*      |
-| **.**         | Repeat the last command                                |
 | **ZZ**        | Save changes and exit                                  |
 | **~**         | Toggle case of current character and forward cursor    |
+| **J**         | Join current line with the next line                   |
+| **.**         | Repeat the last command                                |
+| *CTRL*+**F**  | Scroll forward one screen                              |
+| *CTRL*+**B**  | Scroll backward one screen                             |
+| *CTRL*+**D**  | Scroll forward half screen                             |
+| *CTRL*+**U**  | Scroll backward half screen                            |
+| **z**+*ENTER* | Move current line to top of screen and scroll          |
+| **z.**        | Move current line to center of screen and scroll       |
+| **z-**        | Move current line to bottom of screen and scroll       |
+
+####
+| *CTRL*+**L**  | Redraw the screen                                      |
+
 
 ### Edit Mode
 
