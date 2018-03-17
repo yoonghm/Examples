@@ -54,12 +54,12 @@ These editors offer 3 modes to accept inputs from users:
 | **Command**   | **Description**                                        |
 |:-------------:|:-------------------------------------------------------|
 | **0**         | Move cursor to the beginning of current line           |
-| **h**         | Move cursor to the left                                |
-| **l**         | Move cursor to the right                               |
-| **j**         | move cursor to the down                                |
-| **k**         | Move cursor to the up                                  |
-| **b**         | Move cursor to the beginning previous word             |
-| **w**         | Move cursor to the end of the word on the right        |
+| *n***h**      | Move cursor to the left *n* times                      |
+| *n***l**      | Move cursor to the right *n* times                     |
+| *n***j**      | move cursor to the down *n* times                      |
+| *n***k**      | Move cursor to the up *n* times                        |
+| *n***b**      | Move cursor to the beginning of previous *n* word(s)   |
+| **w**         | Move cursor to the beginning of next *n* word(s)       |
 | **{**         | Move cursor to the beginning of the previous paragraph |
 | **}**         | Move cursor to the end of the previous paragraph       |
 | **M**         | Move cursor to the middle line of window               |
