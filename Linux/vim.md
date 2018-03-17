@@ -58,9 +58,12 @@ These editors offer 3 modes to accept inputs from users:
 | *n***l**      | Cursor to the right *n* times                          |
 | *n***j**      | Cursor to the down *n* times                           |
 | *n***k**      | Cursor to the up *n* times                             |
-| *n***b**      | Cursor to the beginning of previous *n* word(s)        |
-| *n***B**      | Cursor to the beginning of previous *n* word(s), ignoring punctuation|
-| *n***w**      | Cursor to the beginning of next *n* word(s)            |
+| *n***b**      | Cursor to the **b**eginning of current or previous *n* word(s)        |
+| *n***B**      | Cursor to the **b**eginning of current or previous *n* word(s), ignoring punctuation|
+| *n***e**      | Cursor to the **e**nd of current or next *n* word(s)            |
+| *n***E**      | Cursor to the **e**nd of current or next *n* word(s), ignoring punctuation|
+| *n***w**      | Cursor to the beginning of next *n* **w**ord(s)            |
+| *n***W**      | Cursor to the beginning of next *n* **w**ord(s), ignoring punctuation|
 | **{**         | Cursor to the beginning of the previous paragraph      |
 | **}**         | Cursor to the end of the previous paragraph            |
 | **M**         | Cursor to the middle line of window                    |
@@ -82,7 +85,7 @@ These editors offer 3 modes to accept inputs from users:
 | *n***yy**     | Yank *n* lines from current line downward              |
 | **y$**        | Yank from currect character to end of current line     |
 | **p**         | Paste after current cursor                             |
-| **P**         | Paster before current cursor                           |
+| **P**         | Paste before current cursor                            |
 | **m***a*      | Mark current position as *a*                           |
 | **marks**     | Display active bookmarks                               |
 | <b>\`</b>*a*  | Jump to bookmark *a*                                   |
@@ -90,6 +93,7 @@ These editors offer 3 modes to accept inputs from users:
 | <b>d\`</b>*a* | Delete from current character toward bookmark *a*      |
 | **.**         | Repeat the last command                                |
 | **ZZ**        | Save changes and exit                                  |
+| **~**         | Toggle case of current character and forward cursor    |
 
 ### Edit Mode
 
@@ -101,10 +105,14 @@ These editors offer 3 modes to accept inputs from users:
 | **A**         | Apend after the end of current line                    |
 | **o**         | Open a new line below current line                     |
 | **O**         | Open a new line above current line                     |
-| **r**         | Replace current character with next input              |
-| **R**         | Replace current character onwards with next input      |
+| **r**         | Replace current character                              |
+| **R**         | Replace current line from current character            |
 | **c***M*      | Change character in the *M*-direction with next input<br />*M* could be<br />*^* (beginning of current line)<br />*$* (end of current line)<br />|
-| **C**         | Change to the end of line                              |
+| **cw**        | Change current word from current character             |
+| **cc**        | Change current line                                    |
+| **C**         | Change current line from current character             |
+| **s**         | Delete current character and substitute text           |
+| **S**         | Change entire line                                     |
 
 ### Ex Mode
 
