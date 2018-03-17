@@ -53,23 +53,24 @@ These editors offer 3 modes to accept inputs from users:
 
 | **Command**   | **Description**                                        |
 |:-------------:|:-------------------------------------------------------|
-| **0**         | Move cursor to the beginning of current line           |
-| *n***h**      | Move cursor to the left *n* times                      |
-| *n***l**      | Move cursor to the right *n* times                     |
-| *n***j**      | move cursor to the down *n* times                      |
-| *n***k**      | Move cursor to the up *n* times                        |
-| *n***b**      | Move cursor to the beginning of previous *n* word(s)   |
-| *n***w**      | Move cursor to the beginning of next *n* word(s)       |
-| **{**         | Move cursor to the beginning of the previous paragraph |
-| **}**         | Move cursor to the end of the previous paragraph       |
-| **M**         | Move cursor to the middle line of window               |
-| *n***H**      | Move cursor to the *n* lines from **H**ead             |
-| *n***L**      | Move cursor to the *n* lines form **B**ottom           |
-| *n*<b>\|</b>  | Move cursor to column *n* of current line              |
-| *n***G**      | Move cursor to line *n*, default the last line         |
-| *n*<b>%</b>   | Move cursor to percentage *n* of the file              |
-| **^**         | Move cursor to the beginning of current line           |
-| **$**         | Move cursor to the end of current line                 |
+| **0**         | Cursor to the beginning of current line                |
+| *n***h**      | Cursor to the left *n* times                           |
+| *n***l**      | Cursor to the right *n* times                          |
+| *n***j**      | Cursor to the down *n* times                           |
+| *n***k**      | Cursor to the up *n* times                             |
+| *n***b**      | Cursor to the beginning of previous *n* word(s)        |
+| *n***B**      | Cursor to the beginning of previous *n* word(s), ignoring punctuation|
+| *n***w**      | Cursor to the beginning of next *n* word(s)            |
+| **{**         | Cursor to the beginning of the previous paragraph      |
+| **}**         | Cursor to the end of the previous paragraph            |
+| **M**         | Cursor to the middle line of window                    |
+| *n***H**      | Cursor to the *n* lines from **H**ead                  |
+| *n***L**      | Cursor to the *n* lines form **B**ottom                |
+| *n*<b>\|</b>  | Cursor to column *n* of current line                   |
+| *n***G**      | Cursor to line *n*, default the last line              |
+| *n*<b>%</b>   | Cursor to percentage *n* of the file                   |
+| **^**         | Cursor to the beginning of current line                |
+| **$**         | Cursor to the end of current line                      |
 | **x**         | Delete current character                               |
 | **dd**        | Delete current line                                    |
 | **dw**        | Delete from currect character to end of word           |
