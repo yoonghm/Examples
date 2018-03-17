@@ -59,7 +59,7 @@ These editors offer 3 modes to accept inputs from users:
 | *n***j**      | move cursor to the down *n* times                      |
 | *n***k**      | Move cursor to the up *n* times                        |
 | *n***b**      | Move cursor to the beginning of previous *n* word(s)   |
-| **w**         | Move cursor to the beginning of next *n* word(s)       |
+| *n***w**      | Move cursor to the beginning of next *n* word(s)       |
 | **{**         | Move cursor to the beginning of the previous paragraph |
 | **}**         | Move cursor to the end of the previous paragraph       |
 | **M**         | Move cursor to the middle line of window               |
