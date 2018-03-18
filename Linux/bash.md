@@ -173,8 +173,7 @@ The input could be redirected from a file using `<` following by file name.
 The input could also be redirected from command line using *here-document* with `<<` followed by a string delimiter. Subsequent data are inputs. The end of input must be terminated by the same string delimiter in a separate line.
 
 <pre>
-!!!plain
-<b>$ wc <<EOF
+<b>$ wc << EOF
 > This is a line.
 > This is another line.
 > EOF</b>
