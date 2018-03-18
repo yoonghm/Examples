@@ -201,6 +201,8 @@ Variable name is case sensitive.
 
 Use equal sign (`=`) to assign value (on the right-hand side) to variable (on the left-hand side). There is no space on either side of the equal sign.
 
+If there is ambiguity when variable is combined text, you may use use curly brackets to delimiter the variable name. For example, if `$PROJ` has value `TIF`and you want to create A running running of `TIF`such as `TIF1`, `TIF2`, etc., then you may use `${TIF}1`and `${TIF}2, etc.
+
 ### Local Variables
 
 Examples below illustrate some concepts of local variable, which is valid in the current shell only.
@@ -366,10 +368,10 @@ else
 fi
 ```
 
-It is necessary to place the expession for `if` and `elif` within double open and close brackets.
+It is necessary to place the expession for `if` and `elif` within double parentheses.
 The spaces before and after the `>` and `<` are optional.
 
-`bash` shell also provide `-lt` and `-gt` for `>` and `<` respectively. However, the double open and close brackets shall be replaced by single open and close brackets.
+`bash` shell also provide `-lt` and `-gt` for `>` and `<` respectively. However, the double parentheses shall be replaced by single parentheses.
 
 ```bash
 # ...
@@ -414,7 +416,7 @@ do
 done
 ```
 
-*Note that double brackets are used to evaluate arithmetic  expression.*
+*Note that double parentheses are used to evaluate arithmetic  expression.*
 
 <pre>
 <b>$ chmod u+x hello_count.sh</b>
@@ -452,6 +454,8 @@ do
   read -p "Enter a number( q to quit): " number
 done
 ```
+
+`Note: Non-arithmetic expressions are enclosed in square brackets`
 
 <pre>
 <b>$ chmod u+x ask2.sh</b>
