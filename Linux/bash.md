@@ -203,7 +203,7 @@ Use equal sign (`=`) to assign value (on the right-hand side) to variable (on th
 
 ### Local Variables
 
-Examples below illustrate some concepts of **local variable**, which is valid in the current shell only.
+Examples below illustrate some concepts of local variable, which is valid in the current shell only.
 
 Local variables are not passed to child processes forked by the shell.
 
@@ -233,7 +233,7 @@ declare -- myname="a"
 
 ### Environment Variables
 
-**Environment variables** are defined during the startup of `bash`, via `/etc/bash.bashrc`, and `~/.bashrc`.
+Environment variables are defined during the startup of `bash`, via `/etc/bash.bashrc`, and `~/.bashrc`.
 
 Environment variable could be created using builtin command `export`.
 
@@ -260,7 +260,7 @@ declare -x MYNAME="Yoong Hor Meng"
 
 ## Bash Script
 
-`bash` script should start with a *shh-bang* line with path to bash program
+`bash` script should start with a *shh-bang* line that show full path name to bash shell.
 
 <pre>
 #!/bin/bash
@@ -342,9 +342,9 @@ Quotion= 2 remainder= 1
 <b>$ </b>
 </pre>
 
-## Branching and Conditions
+## Branching,Conditions and Loops
 
-### `if` ... `then`... `elfi` `then` ... `else` ... `fi`
+### `if` ... `then`... `elfi` `then` ... `else` ... `fi` Branchings
 
 `bash` provides `if`, `elfi` and `else` blocks. Each block shall be grouped using `then` and `fi`.
 
@@ -396,7 +396,7 @@ Enter a number: 100
 The number is 100
 </pre>
 
-### `while` ... `do` ... `done`
+### `while` ... `do` ... `done` Loop
 
 `while` ... `do` ... `done` loop allow shell script to perform some actions repeatedly as long as some condition(s) is(are) met.
 
@@ -414,6 +414,8 @@ do
 done
 ```
 
+*Note that double brackets are used to evaluate numerical logical expression.*
+
 <pre>
 <b>$ chmod u+x hello_count.sh</b>
 <b>$ ./hello_count.sh</b>
@@ -427,7 +429,7 @@ Hello World for    4
 
 Let's create another script `ask2.sh which is similar to `ask.sh` than repeatedly ask for number until user enter `q`.
 
-There is no `do` ... `while` loop syntax in `bash` shell. Hence it is necessary to `read` a number before the `while` loop.
+There is no `do` ... `while` ... `done` loop syntax in `bash` shell. Hence it is necessary to perform `read` before the `while` loop.
 
 ```bash
 #!/bin/bash
