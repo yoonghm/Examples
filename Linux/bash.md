@@ -1,4 +1,4 @@
-# Unix Shell
+# bash Shell
 
 Every operating system has at least one or more applications to allow user to interact with itself:
 
@@ -6,7 +6,7 @@ Every operating system has at least one or more applications to allow user to in
 
 - Command-line interface such as DOS prompt in Microsoft Windows, Terminal in Unix, Linux and Machitosh operating systems.
 
-Command-line interface applications use shell to interact with users. Unix-like systems come with several type of shell applications:
+Command-line interface applications use shell to allow users to interact with operating systems efficiently. Unix-like systems come with several type of shell applications:
 
 - *sh* (Bourne Shell)
 
@@ -17,8 +17,6 @@ Command-line interface applications use shell to interact with users. Unix-like 
 - *bash* (Bourne Again Shell)
 
 - *pdksh* (Public Domain Korh Shell)
-
-## Unix shell
 
 *bash* is the standard shell comes with modern Linux distributions.  In Unix-like systems, such as Linux, a shell is started by the login process according to setting in `/etc/passwd`
 
@@ -64,3 +62,34 @@ usbmux:x:119:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
 speech-dispatcher:x:120:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/false
 epmd:x:121:130::/var/run/epmd:/bin/false
 ```
+
+## Shell Prompt
+
+The default bash shell prompt is `$`
+
+```
+$ ls
+a    a.c    Desktop    Documents    Downloads
+```
+
+Most Linux distribution set the prompt in user's bash configuration file `(~/.bashrc)` as
+
+```
+# ...
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+
+# ...
+```
+
+In essence, if `$color_prompt` is `yes`, then it uses a colorful prompt.
+
+`${var:+value}` means that `if $var is defined; then use value; else do nothing`.
+
+`${debian_chroot}` is an environment variable that is defined when user changes root directory (via *chroot*).
+
+`\u`, `\h` and `\w` are instructions to *bash* to show user name, host name and current working directory, respectively.
