@@ -168,48 +168,57 @@ Use equal sign (`=`) to assign value (on the right-hand side) to variable (on th
 
 ### Local Variables
 
-Examples below illustrate some concepts of **local variable**, which is valid in the current shell only. Local variables are not passed to child processes forked by the shell.
+Examples below illustrate some concepts of **local variable**, which is valid in the current shell only.
+
+Local variables are not passed to child processes forked by the shell.
+
+Variables could be displayed using builtin command `declare -p`.
 
 <pre>
-<b>$ 1name = a</b>
-No command '1name' found, did you mean:
- Command 'uname' from package 'coreutils' (main)
-1name: command not found
-<b>$ 1name=a</b>
-1name=a: command not found
-<b>$ name=a</b>
-<b>$ echo name</b>
-name
-<b>$ echo $name</b>
+<b>$ 1myname = a</b>
+1myname: command not found
+<b>$ 1myname=a</b>
+1myname=a: command not found
+<b>$ myname=a</b>
+<b>$ echo myname</b>
+myname
+<b>$ echo $myname</b>
 a
-<b>$ name="a"</b>
-<b>$ echo $name</b>
+<b>$ myname="a"</b>
+<b>$ echo $myname</b>
 a
-<b>$ echo $Name</b>
+<b>$ echo $MyName</b>
 
-<b>$ env | grep name</b>
-
+<b>$ declare | grep myname</b>
+myname=a
+<b>$ declare -p | grep myname</b>
+declare -- myname="a"
 <b>$ </b>
 </pre>
 
 ### Environment Variables
 
-**Environment variables** are defined during the startup of `bash`, via `/etc/bash.bashrc`, and `~/.bashrc`. These variables could be displayed using builtin command `export -p`.
+**Environment variables** are defined during the startup of `bash`, via `/etc/bash.bashrc`, and `~/.bashrc`.
 
 Environment variable could be created using builtin command `export`.
+
+Environment variables could be displayed using builtin commands `export -p` or `env`
 
 Environment variables are passed to child processes forked by the shell.
 
 <pre>
-<b>$ export -p | grep name</b>
-<b>$ echo $NAME</b>
-
-<b>$ export NAME="Yoong Hor Meng"</b>
-<b>$ echo $NAME</b>
+<b>$ export -p | grep myname</b>
+<b>$ echo $myname</b>
+a
+<b>$ export MYNAME="Yoong Hor Meng"</b>
+<b>$ echo $MYNAME</b>
 Yoong Hor Meng
-<b>$ env | grep Yoong</b>
-NAME=Yoong Hor Meng
-<b>$
-
-
+<b>$ env | grep MYNAME</b>
+MYNAME=Yoong Hor Meng
+<b>$ declare | grep MYNAME</b>
+MYNAME='Yoong Hor Meng'
+<b>$ export -p | grep MYNAME</b>
+declare -x MYNAME="Yoong Hor Meng"
+<b>$ export -p | grep myname</b>
+<b>$ </b>
 </pre>
