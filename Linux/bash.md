@@ -344,6 +344,8 @@ Quotion= 2 remainder= 1
 
 ## Branching and Conditions
 
+### `if` ... `then`... `elfi` `then` ... `else` ... `fi`
+
 `bash` provides `if`, `elfi` and `else` blocks. Each block shall be grouped using `then` and `fi`.
 
 Below is a `bash` script named `ask.sh`
@@ -383,7 +385,7 @@ Let's make the script execuitable by the owner:
 <b>$ chmod u+x ask.sh</b>
 </pre>
 
-Run the script
+Run the script:
 
 <pre>
 <b>$ ./ask.sh</b>
@@ -392,6 +394,35 @@ The number is greater than 100
 <b>$ ./ask.sh</b>
 Enter a number: 100
 The number is 100
+</pre>
+
+### `while` ... `do` ... `done`
+
+`while` ... `do` ... `done` loop allow shell script to perform some actions repeatedly as long as some condition(s) is(are) met.
+
+Below is the `hello_count.sh` script:
+
+```bash
+#!/bin/bash
+count=0
+MAX=5
+
+while (( count < MAX ))
+do
+  printf 'Hello World for %4d\n' $count
+  let count++
+done
+```
+
+<pre>
+<b>$ chmod u+x hello_count.sh</b>
+<b>$ ./hello_count.sh</b>
+Hello World for    0
+Hello World for    1
+Hello World for    2
+Hello World for    3
+Hello World for    4
+<b>$ </b>
 </pre>
 
 Let's make a similar script `ask2.sh` than repeatedly ask for number until user enter `q`.
@@ -428,4 +459,3 @@ The number is 100
 Enter a number( q to quit): q
 <b>$ </b>
 </pre>
-
