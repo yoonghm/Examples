@@ -156,6 +156,32 @@ cat: no_such_file: No such file or directory
 <b>$ </b>
 </pre>
 
+## Standard Input
+
+The stadard input is keyboard (or mouse if it is an GUI application).
+
+The input could be redirected from a file using `<` following by file name.
+
+<pre>
+<b>$ echo "This is a line." > file.txt</b>
+<b>$ echo "This is another line." >> file.txt</b>
+<b>$ wc < file.txt</b>
+ 2  8 38
+<b>$ </b>
+</pre>
+
+The input could also be redirected from command line using *here-document* with `<<` followed by a string delimiter. Subsequent data are inputs. The end of input must be terminated by the same string delimiter in a separate line.
+
+<pre>
+!!!plain
+<b>$ wc <<EOF
+> This is a line.
+> This is another line.
+> EOF</b>
+ 2  8 38
+<b>$ </b>
+</pre>
+
 ## Variables
 
 Variables are used to store string which could be recalled later.
