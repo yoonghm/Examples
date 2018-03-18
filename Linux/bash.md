@@ -394,3 +394,37 @@ Enter a number: 100
 The number is 100
 </pre>
 
+Let's make a similar script `ask2.sh` than repeatedly ask for number until user enter `q`.
+
+```bash
+#!/bin/bash
+
+while [ "$number" != "q" ]
+do
+  read -p "Enter a number( q to quit): " number
+
+  if (( $number > 100 ))
+  then
+    echo "The number is greater than 100"
+  elif (( $number < 100 ))
+  then
+    echo "The number is less than 100"
+  else
+    echo "The number is 100"
+  fi
+done
+```
+
+<pre>
+<b>$ chmod u+x ask2.sh</b>
+<b>$ ./ask2.sh</b>
+Enter a number( q to quit): 100
+The number is 100
+Enter a number( q to quit): q
+The number is less than 100
+<b>$ </b>
+</pre>
+
+The script is not perfect as it prints a statement even if we enter `q`.
+
+Let's make another script `ask3.sh`
