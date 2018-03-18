@@ -160,6 +160,16 @@ cat: no_such_file: No such file or directory
 
 The stadard input is keyboard (or mouse if it is an GUI application).
 
+<pre>
+<b>$ read -p "What is your name? "</b>
+What is your name? Yoong Hor Meng
+<b>$ read -p "What is your name? " name</b>
+What is your name? <b><i>Yoong Hor Meng</i></b>
+<b>$ echo $name</b>
+Yoong Hor Meng
+<b>$ </b>
+</pre>
+
 The input could be redirected from a file using `<` following by file name.
 
 <pre>
