@@ -425,7 +425,7 @@ Hello World for    4
 <b>$ </b>
 </pre>
 
-Let's make a similar script `ask2.sh` than repeatedly ask for number until user enter `q`.
+Let's create another script `ask2.sh which is similar to `ask.sh` than repeatedly ask for number until user enter `q`.
 
 There is no `do` ... `while` loop syntax in `bash` shell. Hence it is necessary to `read` a number before the `while` loop.
 
@@ -459,3 +459,4 @@ The number is 100
 Enter a number( q to quit): q
 <b>$ </b>
 </pre>
+
