@@ -396,22 +396,27 @@ The number is 100
 
 Let's make a similar script `ask2.sh` than repeatedly ask for number until user enter `q`.
 
+There is no `do` ... `while` loop syntax in `bash` shell. Hence it is necessary to `read` a number before the `while` loop.
+
 ```bash
 #!/bin/bash
 
+read -p "Enter a number( q to quit): " number
+
 while [ "$number" != "q" ]
 do
-  read -p "Enter a number( q to quit): " number
-
   if (( $number > 100 ))
   then
     echo "The number is greater than 100"
   elif (( $number < 100 ))
   then
     echo "The number is less than 100"
-  else
+  elif (( $number == 100 ))
+  then
     echo "The number is 100"
   fi
+
+  read -p "Enter a number( q to quit): " number
 done
 ```
 
@@ -421,10 +426,6 @@ done
 Enter a number( q to quit): 100
 The number is 100
 Enter a number( q to quit): q
-The number is less than 100
 <b>$ </b>
 </pre>
 
-The script is not perfect as it prints a statement even if we enter `q`.
-
-Let's make another script `ask3.sh`
