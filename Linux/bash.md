@@ -258,6 +258,46 @@ declare -x MYNAME="Yoong Hor Meng"
 <b>$ </b>
 </pre>
 
+## Bash Script
+
+`bash` script should start with a *shh-bang* line with path to bash program
+
+<pre>
+#!/bin/bash
+</pre>
+
+Below is a `bash` script named `hello.sh`
+
+```bash
+#!/bin/bash
+
+echo "Hello World!"
+```
+
+There are two way to execute the script:
+
+a. **Call the script via bash**<br>
+   In this case, the *shh-bang* line is not important.
+
+<pre>
+<b>$ bash ./hello.sh</b>
+Hello World!
+</pre>
+
+b. **Make the script executable**<br>
+   In this case, the *shh-bang* line decides which program to run the script.
+
+<pre>
+<b>$ ls -l hello.sh</b>
+-rw-rw-r-- 1 spsy spsy 34 Mar 19 02:01 hello.sh
+<b>$ chmod u+x hello.sh</b>
+<b>$ ls -l hello.sh</b>
+-rwxrw-r-- 1 spsy spsy 34 Mar 19 02:01 hello.sh
+<b>$ ./hello.sh</b>
+Hello World!
+<b>$ </b>
+</pre>
+
 ## Arithmetic
 
 It used to be complicated to perform arithmetic in shell.  New versions of `bash` have made it simpler.
@@ -289,4 +329,68 @@ x**3
 <b>let x+=1</b>
 <b>$ echo $x</b>
 3
+<b>$ x=2</b>
+<b>$ y=3</b>
+<b>$ let z=x+y</b>
+<b>$ echo $z</b>
+5
+<b>$ let x=9</b>
+<b>$ let q=x/4</b>
+<b>$ let r=x%4</b>
+<b>$ echo Quotion= $q remainder= $r</b>
+Quotion= 2 remainder= 1
+<b>$ </b>
 </pre>
+
+## Branching and Conditions
+
+`bash` provides `if`, `elfi` and `else` blocks. Each block shall be grouped using `then` and `fi`.
+
+Below is a `bash` script named `ask.sh`
+
+```bash
+#!/bin/bash
+
+read -p "Enter a number: " number
+
+if (( $number > 100 ))
+then
+  echo "The number is greater than 100"
+elif (( $number < 100 ))
+then
+  echo "The number is less than 100"
+else
+  echo "The number is 100"
+fi
+```
+
+It is necessary to place the expession for `if` and `elif` within double open and close brackets.
+The spaces before and after the `>` and `<` are optional.
+
+`bash` shell also provide `-lt` and `-gt` for `>` and `<` respectively. However, the double open and close brackets shall be replaced by single open and close brackets.
+
+```bash
+# ...
+if [ $number -gt 100 ]
+#...
+elif [ $number -lt 100 ]
+# ...
+```
+
+Let's make the script execuitable by the owner:
+
+<pre>
+<b>$ chmod u+x ask.sh</b>
+</pre>
+
+Run the script
+
+<pre>
+<b>$ ./ask.sh</b>
+Enter a number: 200
+The number is greater than 100
+<b>$ ./ask.sh</b>
+Enter a number: 100
+The number is 100
+</pre>
+
