@@ -20,8 +20,8 @@ Command-line interface applications use shell to allow users to interact with op
 
 *bash* is the standard shell comes with modern Linux distributions.  In Unix-like systems, such as Linux, a shell is started by the login process according to setting in `/etc/passwd`
 
-```
-root:x:0:0:root:/root:/bin/bash
+<pre>
+root:x:0:0:root:/root:<b>/bin/bash</b>
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
 sys:x:3:3:sys:/dev:/usr/sbin/nologin
@@ -61,20 +61,20 @@ saned:x:118:127::/var/lib/saned:/bin/false
 usbmux:x:119:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
 speech-dispatcher:x:120:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/false
 epmd:x:121:130::/var/run/epmd:/bin/false
-```
+</pre>
 
 ## Shell Prompt
 
 The default bash shell prompt is `$`
 
-```
-$ ls
+<pre>
+<b>$ ls</b>
 a    a.c    Desktop    Documents    Downloads
-```
+</pre>
 
 Most Linux distribution set the prompt in user's bash configuration file `(~/.bashrc)` as
 
-```
+```bash
 # ...
 
 if [ "$color_prompt" = yes ]; then
@@ -107,11 +107,11 @@ Below is an example of animated ASCII art from [https://www.cyberciti.biz/open-s
 The standard output of any shell is terminal. For example
 
 <pre>
-<b><span style="color:blue">$ echo Hello World!</span></b>
+<b>$ echo Hello World!</b>
 Hello World!
-<b><span style="color:blue">$ echo Hello              World!</span></b>
+<b>$ echo Hello              World!</b>
 Hello World!
-<b><span style="color:blue">$ echo "Hello              World!"</span></b>
+<b>$ echo "Hello              World!"</b>
 Hello              World!
-<b><span style="color:blue">$</span></b>
+<b>$</b>
 </pre>
