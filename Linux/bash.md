@@ -6,7 +6,11 @@ Every operating system has at least one or more applications to allow user to in
 
 - Command-line interface such as DOS prompt in Microsoft Windows, Terminal in Unix, Linux and Machitosh operating systems.
 
-Command-line interface applications use shell to allow users to interact with operating systems efficiently. Unix-like systems come with several type of shell applications:
+Command-line interface applications use shell to allow users to interact with operating systems efficiently.
+
+Each command accepted by a shell would be executed in a child process.  A child process would inherit all settings from the shell.
+
+Unix-like systems come with several type of shells:
 
 - *sh* (Bourne Shell)
 
@@ -162,6 +166,9 @@ Variable name is case sensitive.
 
 Use equal sign (`=`) to assign value (on the right-hand side) to variable (on the left-hand side). There is no space on either side of the equal sign.
 
+### Local Variables
+
+Examples below illustrate some concepts of **local variable**, which is valid in the current shell only. Local variables are not passed to child processes forked by the shell.
 
 <pre>
 <b>$ 1name = a</b>
@@ -180,5 +187,29 @@ a
 a
 <b>$ echo $Name</b>
 
+<b>$ env | grep name</b>
+
 <b>$ </b>
+</pre>
+
+### Environment Variables
+
+**Environment variables** are defined during the startup of `bash`, via `/etc/bash.bashrc`, and `~/.bashrc`. These variables could be displayed using builtin command `export -p`.
+
+Environment variable could be created using builtin command `export`.
+
+Environment variables are passed to child processes forked by the shell.
+
+<pre>
+<b>$ export -p | grep name</b>
+<b>$ echo $NAME</b>
+
+<b>$ export NAME="Yoong Hor Meng"</b>
+<b>$ echo $NAME</b>
+Yoong Hor Meng
+<b>$ env | grep Yoong</b>
+NAME=Yoong Hor Meng
+<b>$
+
+
 </pre>
