@@ -257,3 +257,36 @@ declare -x MYNAME="Yoong Hor Meng"
 <b>$ export -p | grep myname</b>
 <b>$ </b>
 </pre>
+
+## Arithmetic
+
+It used to be complicated to perform arithmetic in shell.  New versions of `bash` have made it simpler.
+
+Use builtin command `let` to perform arithmetic.
+
+<pre>
+<b>$ x=2</b>
+<b>$ x=x+1</b>
+<b>$ echo $x</b>
+x=1
+<b>$ x=2</b>
+<b>let x=x+1</b>
+<b>$ echo $x</b>
+3
+<b>$ x=2</b>
+<b>x=x**3</b>
+<b>$ echo $x</b>
+x**3
+<b>$ x=2</b>
+<b>let x=x**3</b>
+<b>$ echo $x</b>
+8
+<b>$ x=2</b>
+<b>x+=1</b>
+<b>$ echo $x</b>
+21
+<b>$ x=2</b>
+<b>let x+=1</b>
+<b>$ echo $x</b>
+3
+</pre>
