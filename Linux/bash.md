@@ -414,7 +414,7 @@ do
 done
 ```
 
-*Note that double brackets are used to evaluate numerical logical expression.*
+*Note that double brackets are used to evaluate arithmetic  expression.*
 
 <pre>
 <b>$ chmod u+x hello_count.sh</b>
@@ -462,3 +462,17 @@ Enter a number( q to quit): q
 <b>$ </b>
 </pre>
 
+### `for` loop
+
+For loop allows a shell script to perform some actions in a specific number of time.
+
+The general syntax is
+
+```bash
+for (( expr1 ; expr2 ; expr3 ))
+do 
+  actions
+done
+```
+
+`expr1` `expr2` `expr3`
