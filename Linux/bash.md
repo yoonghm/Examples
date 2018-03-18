@@ -104,7 +104,7 @@ Below is an example of animated ASCII art from [https://www.cyberciti.biz/open-s
 
 ## Standard Output
 
-The standard output of any shell is terminal. For example
+The standard output of any shell is terminal.
 
 <pre>
 <b>$ echo Hello World!</b>
@@ -113,5 +113,40 @@ Hello World!
 Hello World!
 <b>$ echo "Hello              World!"</b>
 Hello              World!
-<b>$</b>
+<b>$ echo -n "No new line"</b>
+No new line$
+<b>$ printf 'Temperature = %6.2f\n\n' 34.1231</b>
+Temperature =   34.12
+
+<b>$ </b>
+</pre>
+
+We can redirect standard output (from terminal) a file. The standard output (`STDOUT`) has file descriptor number 1.
+
+<pre>
+<b>$ echo "This is a line." > ./file.txt</b>
+<b>$ cat file.txt</b>
+This is a line.
+<b>$ echo "This is another line." > ./file.txt</b>
+<b>$ cat file.txt</b>
+This is another line.
+<b>$ echo "This line is appended." >> ./file.txt</b>
+<b>$ cat file.txt</b>
+This is another line.
+This line is appended.
+<b>$ cat no_such_file >> ./file.txt</b>
+cat: no_such_file: No such file or directory
+<b>$ cat file.txt</b>
+This is another line.
+This line is appended.
+</pre>
+
+The error message is not appended to `file.txt` as it is output to standard error (`STDERR`) which is default to terminal and has file descriptor number 2.
+
+<pre>
+<b>$ cat no_such_file >> ./file.txt 2>&1</b>
+<b>$ cat file.txt</b>
+This is another line.
+This line is appended.
+cat: no_such_file: No such file or directory
 </pre>
