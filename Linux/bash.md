@@ -1,3 +1,5 @@
+{::options parse_block_html="true" /}
+
 # bash Shell
 
 Every operating system has at least one or more applications to allow user to interact with itself:
@@ -21,7 +23,7 @@ Command-line interface applications use shell to allow users to interact with op
 *bash* is the standard shell comes with modern Linux distributions.  In Unix-like systems, such as Linux, a shell is started by the login process according to setting in `/etc/passwd`
 
 ```
-root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:<b>/bin/bash</b>
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
 sys:x:3:3:sys:/dev:/usr/sbin/nologin
@@ -93,3 +95,11 @@ In essence, if `$color_prompt` is `yes`, then it uses a colorful prompt.
 `${debian_chroot}` is an environment variable that is defined when user changes root directory (via *chroot*).
 
 `\u`, `\h` and `\w` are instructions to *bash* to show user name, host name and current working directory, respectively.
+
+`\$` is to escape `$`.
+
+`\[\033[01;32m\]`, `\[\033[00m\]` and `\[\033[01;34m\]` are ASCII escape codes to display colors on terminals.
+
+Below is an example of animated ASCII art
+
+![ASCII animated Christmas Tree](./perl-tree.gif)
