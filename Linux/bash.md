@@ -149,4 +149,36 @@ The error message is not appended to `file.txt` as it is output to standard erro
 This is another line.
 This line is appended.
 cat: no_such_file: No such file or directory
+<b>$ </b>
+</pre>
+
+## Variables
+
+Variables are used to store string which could be recalled later.
+
+Variable name must begin with alphabetical or underscore (`_`) chracters, followed by one or more alphanumeric or underscore characters.
+
+Variable name is case sensitive.
+
+Use equal sign (`=`) to assign value (on the right-hand side) to variable (on the left-hand side). There is no space on either side of the equal sign.
+
+
+<pre>
+<b>$ 1name = a</b>
+No command '1name' found, did you mean:
+ Command 'uname' from package 'coreutils' (main)
+1name: command not found
+<b>$ 1name=a</b>
+1name=a: command not found
+<b>$ name=a</b>
+<b>$ echo name</b>
+name
+<b>$ echo $name</b>
+a
+<b>$ name="a"</b>
+<b>$ echo $name</b>
+a
+<b>$ echo $Name</b>
+
+<b>$ </b>
 </pre>
