@@ -201,7 +201,7 @@ Variable name is case sensitive.
 
 Use equal sign (`=`) to assign value (on the right-hand side) to variable (on the left-hand side). There is no space on either side of the equal sign.
 
-If there is ambiguity when variable is combined text, you may use use curly brackets to delimiter the variable name. For example, if `$PROJ` has value `TIF`and you want to create A running running of `TIF`such as `TIF1`, `TIF2`, etc., then you may use `${TIF}1`and `${TIF}2, etc.
+If there is ambiguity when variable is combined text, you may use use curly brackets to delimiter the variable name. For example, if `$PROJ` has value `TIF`and you want to create A running running of `TIF`such as `TIF1`, `TIF2`, etc., then you may use `${TIF}1`and `${TIF}2`, etc.
 
 ### Local Variables
 
