@@ -472,7 +472,7 @@ There are two versions of `for` loop.
 
 1.  **Older Version: Interating Over A Fixed List of Items**
 
-A example of older version of `for` loop: `forloop1.sh`
+An example of older version of `for` loop: `forloop1.sh`
 
 ```bash
 #!/bin/bash
@@ -517,7 +517,7 @@ done
 
 *Note: Varriables inside double paretheses do not need to use **$** (such as `myname` except for arguments like `$1`).*
 
-A example of older version of `for` loop: `forloop2.sh`
+An example of older version of `for` loop: `forloop2.sh`
 
 ```bash
 #!/bin/bash
@@ -530,3 +530,19 @@ do
   printf '%2d * %2d = %4d\n' $i $j $((i*j))
 done
 ```
+
+### `for` Loop with Dynamic Iterable Items
+
+You could create dynamic iterable items for `for` loop by placing putting command that generate list within \`.
+
+An example of dynamic interable items named `for_dynamic.sh`
+
+```bash
+#!/bin/bash
+
+for i in `ls -1`
+do
+  printf '%s\n' $i
+done
+```
+
