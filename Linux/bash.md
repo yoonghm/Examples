@@ -158,7 +158,7 @@ cat: no_such_file: No such file or directory
 
 ## Standard Input
 
-The stadard input is keyboard (or mouse if it is an GUI application).
+The standard input is keyboard (or mouse if it is an GUI application).
 
 <pre>
 <b>$ read -p "What is your name? "</b>
@@ -310,7 +310,7 @@ Use builtin command `let` to perform arithmetic.
 <b>$ x=2</b>
 <b>$ x=x+1</b>
 <b>$ echo $x</b>
-x=1
+x=x+1
 <b>$ x=2</b>
 <b>let x=x+1</b>
 <b>$ echo $x</b>
@@ -454,6 +454,21 @@ do
   read -p "Enter a number( q to quit): " number
 done
 ```
+
+We can provide input the the script using here-document:
+
+<pre>
+<b>$ ./ask2.sh << EOF
+101
+100
+99
+q
+EOF</b>
+The number is greater than 100
+The number is 100
+The number is less than 10
+<b>$ </b>
+</pre>
 
 `Note: Non-arithmetic expressions are enclosed in square brackets`
 
