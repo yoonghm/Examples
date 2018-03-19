@@ -344,9 +344,9 @@ Quotion= 2 remainder= 1
 <b>$ </b>
 </pre>
 
-## Branching,Conditions and Loops
+## Branching, Conditions and Loops
 
-### `if` ... `then`... `elfi` `then` ... `else` ... `fi` Branchings
+### `if` ... `then`... `elfi` ... `then` ... `else` ... `fi` Branchings
 
 `bash` provides `if`, `elfi` and `else` blocks. Each block shall be grouped using `then` and `fi`.
 
@@ -416,7 +416,7 @@ do
 done
 ```
 
-*Note: Double parentheses are used to evaluate arithmetic expression.*
+*Note: Double parentheses are used to evaluate arithmetic expression.  It is not necessary to use `$` for variables.*
 
 <pre>
 <b>$ chmod u+x hello_count.sh</b>
