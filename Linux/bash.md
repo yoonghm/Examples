@@ -262,7 +262,7 @@ declare -x MYNAME="Yoong Hor Meng"
 
 ## Bash Script
 
-`bash` script should start with a *shh-bang* line that show full path name to bash shell.
+`bash` script should start with a *shebang* line that show full path name to bash shell.
 
 <pre>
 #!/bin/bash
