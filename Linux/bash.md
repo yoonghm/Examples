@@ -357,10 +357,10 @@ Below is a `bash` script named `ask.sh`
 
 read -p "Enter a number: " number
 
-if (( $number > 100 ))
+if (( number > 100 ))
 then
   echo "The number is greater than 100"
-elif (( $number < 100 ))
+elif (( number < 100 ))
 then
   echo "The number is less than 100"
 else
@@ -416,7 +416,7 @@ do
 done
 ```
 
-*Note that double parentheses are used to evaluate arithmetic  expression.*
+*Note: Double parentheses are used to evaluate arithmetic expression.*
 
 <pre>
 <b>$ chmod u+x hello_count.sh</b>
@@ -429,7 +429,7 @@ Hello World for    4
 <b>$ </b>
 </pre>
 
-Let's create another script `ask2.sh which is similar to `ask.sh` than repeatedly ask for number until user enter `q`.
+Let's create another script `ask2.sh` which is similar to `ask.sh` than repeatedly ask for number until user enter `q`.
 
 There is no `do` ... `while` ... `done` loop syntax in `bash` shell. Hence it is necessary to perform `read` before the `while` loop.
 
@@ -440,13 +440,13 @@ read -p "Enter a number( q to quit): " number
 
 while [ "$number" != "q" ]
 do
-  if (( $number > 100 ))
+  if (( number > 100 ))
   then
     echo "The number is greater than 100"
-  elif (( $number < 100 ))
+  elif (( number < 100 ))
   then
     echo "The number is less than 100"
-  elif (( $number == 100 ))
+  elif (( number == 100 ))
   then
     echo "The number is 100"
   fi
@@ -468,15 +468,65 @@ Enter a number( q to quit): q
 
 ### `for` loop
 
+There are two versions of `for` loop.
+
+1.  **Older Version: Interating Over A Fixed List of Items**
+
+A example of older version of `for` loop: `forloop1.sh`
+
+```bash
+#!/bin/bash
+
+for i in 1 2 3 4 5
+do
+  echo $i
+done
+```
+
+<pre>
+<b>$ chmod u+x forloop1.sh</b>
+<b>$ ./forloop1.sh</b>
+1
+2
+3
+4
+5
+<b>$ </b>
+</pre>
+
+
+2.  **Newer Version: Similar to C/C++ Syntax**
 For loop allows a shell script to perform some actions in a specific number of time.
 
 The general syntax is
 
 ```bash
 for (( expr1 ; expr2 ; expr3 ))
-do 
+do
   actions
 done
 ```
 
-`expr1` `expr2` `expr3`
+`expr1`, `expr2` and `expr3` are arithmetic expressions.
+
+`expr1` is the initialization expression which may include one or more initialization separated by comma.
+
+`expr2` is the stopping expression which may include one or more stopping conditions separated by comma.
+
+`expr3` is the looping expression which may include one or more stopping conditions separated by comma.
+
+*Note: Varriables inside double paretheses do not need to use **$** (such as `myname` except for arguments like `$1`).*
+
+A example of older version of `for` loop: `forloop2.sh`
+
+```bash
+#!/bin/bash
+
+for (( i=0, j=0;
+       i+j<10, j<10;
+       i++, j++
+    ))
+do
+  printf '%2d * %2d = %4d\n' $i $j $((i*j))
+done
+```
