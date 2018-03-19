@@ -260,6 +260,21 @@ declare -x MYNAME="Yoong Hor Meng"
 <b>$ </b>
 </pre>
 
+Variables could be assigned to another variables.  There is a different to enclose variable with single or double quoations:
+
+- Shell will expand variables enclosed in double quotation (**"**)
+- Shell will *not* expand variables enclosed in single quotation (**'**)
+
+<pre>
+<b>$ double="I am $MYNAME"</b>
+<b>$ echo $double</b>
+I am Yoong Hor Meng
+<b>$ single='I am $MYNAME'</b>
+<b>$ echo $single</b>
+I am $MYNAME
+<b>$ </b>
+</pre>
+
 ## Bash Script
 
 `bash` script should start with a *shebang* line that show full path name to bash shell.
