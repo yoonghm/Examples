@@ -156,7 +156,7 @@ print('Hello World!')
 
 Example: Execute Python script using `-c` option:
 
-```bash
-python3 -c "import time; print(time.asctime())"
-```
+<pre>
+<b>$ python3 -c "import time; print(time.asctime())"</b>
+</pre>
 
