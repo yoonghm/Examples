@@ -32,3 +32,14 @@
 <b>$ sudo mkfs ext4 /dev/sda6</b>
 <b>$ # Update /etc/fstab for /dev/sda6</b>
 </pre>
+
+## Free up Space in Ubuntu
+
+<pre>
+<b>$ sudo apt-get clean                 # Clean up APT Cache</b>
+<b>$ sudo apt-get autoremove --purge    # Remove old kernels</b>
+<b>$ apt list --installed               # Find out unused packages
+<b>$ # apt-get remove package_name1</b>
+</pre>
+
+
