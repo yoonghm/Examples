@@ -134,7 +134,7 @@ If there are multiple Python developement projects and multi-user using tje new 
 <b>$ conda create --name demo python=3.6  # demo is created under ~/anaconda3/envs/</b>
 <b>$ source activate demo                 # To activate the environment</b>
 <b>(demo) $ source deactivate             # To deactivate the environment</b>
-<b> $ conda env remove --name demo        # Remove demo environment</b>
+<b>$ conda env remove --name demo        # Remove demo environment</b>
 </pre>
 
 ## Python Language Overview
