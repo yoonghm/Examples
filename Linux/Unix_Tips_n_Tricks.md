@@ -13,10 +13,10 @@
 
 ## Find the top-10 largest files
 <pre
-<b>$ sudo find -type f -exec du -Sh {} + | sort -rh | head -5</b>
-552M	./Downloads/Anaconda3-5.1.0-Linux-x86_64.sh
-71M	./anaconda3/pkgs/mkl-2018.0.1-h19d6760_4/lib/libmkl_avx512_mic.so
-71M	./anaconda3/lib/libmkl_avx512_mic.so
-63M	./anaconda3/pkgs/mkl-2018.0.1-h19d6760_4/lib/libmkl_avx512.so
-63M	./anaconda3/lib/libmkl_avx512.so
+<b>$ sudo find / -type f -exec du -Sh {} + 2>/dev/null | sort -rh | head -5</b>
+93M	/usr/lib/firefox/libxul.so
+80M	/usr/share/code/code
+73M	/usr/lib/thunderbird/libxul.so
+71M	/home/spsy/anaconda3/pkgs/mkl-2018.0.1-h19d6760_4/lib/libmkl_avx512_mic.so
+71M	/home/spsy/anaconda3/lib/libmkl_avx512_mic.so
 </pre>
