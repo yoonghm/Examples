@@ -1,4 +1,4 @@
-# Unix Tips and Trics
+# Unix Tips and Tricks
 
 ## Find the top-10 largest directories
 
@@ -19,4 +19,16 @@
 73M	/usr/lib/thunderbird/libxul.so
 71M	/home/spsy/anaconda3/pkgs/mkl-2018.0.1-h19d6760_4/lib/libmkl_avx512_mic.so
 71M	/home/spsy/anaconda3/lib/libmkl_avx512_mic.so
+</pre>
+
+## Reduce swap partition in `/dev/sda5`
+
+<pre>
+<b>$ sudo swapoff /dev/sda5</b>
+<b>$ # Split /dev/sda5 into 2 partition, say /dev/sda5 and /dev/sda6</b>
+<b>$ # Mark /dev/sda5 as swap partition</b>
+<b>$ sudo mkswap /dev/sda5</b>
+<b>$ sudo swapon /dev/sda5</b>
+<b>$ sudo mkfs ext4 /dev/sda6</b>
+<b>$ # Update /etc/fstab for /dev/sda6</b>
 </pre>
