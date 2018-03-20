@@ -1,4 +1,4 @@
-# Unix Tips and Tricks
+# Ubuntu Tips and Tricks
 
 ## Find the top-10 largest directories
 
@@ -42,4 +42,6 @@
 <b>$ # apt-get remove package_name1</b>
 </pre>
 
+## Open a Terminal
 
+`CTRL+ALT+T` open a new terminal.
