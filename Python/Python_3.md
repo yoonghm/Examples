@@ -141,12 +141,6 @@ If there are multiple Python developement projects and multi-user using tje new 
 
 Python is similar to `bash` except that it is more powerful and comes with many useful modules (i.e., libraries).
 
-Example: Execute Python script using `-c` option:
-
-```bash
-python3 -
-```
-
 Example: `hello_world.py`
 
 ```Python
@@ -159,3 +153,10 @@ print('Hello World!')
 <b> $ chmod u+x hello_world.py</b>
 <b> $ ./hello_world.py</b>
 ```
+
+Example: Execute Python script using `-c` option:
+
+```bash
+python3 -c "import time; print(time.asctime())"
+```
+
