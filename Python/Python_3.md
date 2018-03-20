@@ -114,7 +114,7 @@ Microsoft Visual Code (VSCode) is installed in `/usr/share/code`. If your Linux 
 ### Re-read `~/.bashrc`
 The new configuration may not be recognized by your current `bash` shell. You may open a new terminal or force your `bash` to re-read the configuration:
 
-```bash
+<pre>
 <b> $ which python3</b>
 /usr/bin/python3
 <b> $ which python</b>
@@ -124,18 +124,18 @@ The new configuration may not be recognized by your current `bash` shell. You ma
 /home/spsy/anaconda3/bin/python3
 <b> $ which python</b>
 /home/spsy/anaconda3/bin/python
-```
+</pre>
 
 ### Conda Environment
 
 If there are multiple Python developement projects and multi-user using tje new Anaconda installation, you may want to create conda environment to separate them:
 
-```bash
+<pre>
 <b>$ conda create --name demo python=3.6  # demo is created under ~/anaconda3/envs/</b>
 <b>$ source activate demo                 # To activate the environment</b>
 <b>(demo) $ source deactivate             # To deactivate the environment</b>
-<b> $ conda env remove --name demo        # Remove demo environment<b>
-```
+<b> $ conda env remove --name demo        # Remove demo environment</b>
+</pre>
 
 ## Python Language Overview
 
@@ -149,10 +149,10 @@ Example: `hello_world.py`
 print('Hello World!')
 ```
 
-```bash
+<pre>
 <b> $ chmod u+x hello_world.py</b>
 <b> $ ./hello_world.py</b>
-```
+</pre>
 
 Example: Execute Python script using `-c` option:
 
