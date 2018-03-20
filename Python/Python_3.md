@@ -89,6 +89,8 @@ You need to download only one version that suits your system architecture:
 
 2. [32-bit command-line installer for Linux](https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86.sh)
 
+You can use `arch` or `uname -m` to check the architecture that your Linux OS is running on.
+
 ```bash
 ## Download the relevant installer using wget
 #
@@ -109,5 +111,51 @@ Anaconda is installed in your home directory.
 
 Microsoft Visual Code (VSCode) is installed in `/usr/share/code`. If your Linux has GUI, you may run VSCode via `code` from the command line.
 
+### Re-read `~/.bashrc`
+The new configuration may not be recognized by your current `bash` shell. You may open a new terminal or force your `bash` to re-read the configuration:
 
+```bash
+<b> $ which python3</b>
+/usr/bin/python3
+<b> $ which python</b>
+/usr/bin/python
+. ~/.bashrc
+<b> $ which python3</b>
+/home/spsy/anaconda3/bin/python3
+<b> $ which python</b>
+/home/spsy/anaconda3/bin/python
+```
 
+### Conda Environment
+
+If there are multiple Python developement projects and multi-user using tje new Anaconda installation, you may want to create conda environment to separate them:
+
+```bash
+<b>$ conda create --name demo python=3.6  # demo is created under ~/anaconda3/envs/</b>
+<b>$ source activate demo                 # To activate the environment</b>
+<b>(demo) $ source deactivate             # To deactivate the environment</b>
+<b> $ conda env remove --name demo        # Remove demo environment<b>
+```
+
+## Python Language Overview
+
+Python is similar to `bash` except that it is more powerful and comes with many useful modules (i.e., libraries).
+
+Example: Execute Python script using `-c` option:
+
+```bash
+python3 -
+```
+
+Example: `hello_world.py`
+
+```Python
+#!/usr/bin/env python3
+
+print('Hello World!')
+```
+
+```bash
+<b> $ chmod u+x hello_world.py</b>
+<b> $ ./hello_world.py</b>
+```
