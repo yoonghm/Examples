@@ -1,9 +1,9 @@
 # Unix Tips and Trics
 
-## Find the top-10 largest files
+## Find the top-10 directories occupying most storage
 
 <pre>
-<b>$ sudo du -a / | sort -n -r | head -n 10</b>
+<b>$ sudo du -hL / 2>/dev/null | sort -n -r | head -n 10</b>
 7826444	/
 3216280	/usr
 3098852	/home
