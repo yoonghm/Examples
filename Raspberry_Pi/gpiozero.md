@@ -2,6 +2,21 @@
 
 `gpiozero` is Python 2 and 3 packages for Raspberry Pi.  
 
+Example program
+
+```python
+from gpiozero import LED
+from time import sleep
+
+led = LED(17)
+
+while True:
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)
+```
+
 The official document could be downloaded from https://gpiozero.readthedocs.io/en/stable/index.html#
 
 ## Installation
