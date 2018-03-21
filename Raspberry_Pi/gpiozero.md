@@ -17,7 +17,7 @@ while True:
     sleep(1)
 ```
 
-The official document could be downloaded from https://gpiozero.readthedocs.io/en/stable/index.html#
+The official document could be downloaded from https://gpiozero.readthedocs.io/
 
 ## Installation
 
