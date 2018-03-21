@@ -77,7 +77,7 @@ network={
 # echo 'your_plaintext_password' | iconv -t utf16le | openssl md4 | awk '{print $2}'
 #
 # You can do it via vi by putting the cursor after "hash:"
-# :r !echo 'your_plaintext_password' | iconv -t utf16le | openssl md4 | awk '{print $2}'
+# :r !echo -n 'your_plaintext_password' | iconv -t utf16le | openssl md4 | awk '{print $2}'
 #
 # Restart your networking
 # sudo service networking restart
