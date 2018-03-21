@@ -116,9 +116,15 @@ if __name__ == "__name__":
 Run the flask web server:
 
 <pre>
-<b>$ FLASK_APP=flask_web.py flask run -h 0.0.0.0</b>
+$ <b>FLASK_APP=flask_web.py flask run -h 0.0.0.0</b>
  * Serving Flask app "flask_web"
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+</pre>
+
+If you use `flask` in Microsoft Windows, use the following command
+<pre>
+C:\><b>set FLASK_APP=flask_web.py</b>
+C:\><b>flask run</b>
 </pre>
 
 ## Configuration After First Boot
@@ -126,7 +132,7 @@ Run the flask web server:
 Login from the Linux box to RPi3 using `ssh`.  Assume RPi3's address is **192.168.1.9**
 
 <pre>
-<b>$ ssh pi@192.168.1.9</b>
+$ <b>ssh pi@192.168.1.9</b>
 </pre>
 
 Make the following changes:
@@ -145,7 +151,7 @@ After this changes, `ALT+F1` ... `ALT+F12` give you additional 11 terminal sessi
 ### Set timezone to `Asia/Singapore`
 
 <pre>
-<b>$ sudo timedatectl set-timezone Asia/Singapore</b>
+$ <b>sudo timedatectl set-timezone Asia/Singapore</b>
 </pre>
 
 ### Set time synchronization server
@@ -162,7 +168,7 @@ FallbackNTP=52.163.118.68
 ### Test a http connection to the flask web server setup earlier
 
 <pre>
-<b>$ curl 192.168.1.10:5000</b>
+$ <b>curl 192.168.1.10:5000</b>
 </pre>
 
 The terminal that run the flask web server shuld should you a new message:
@@ -194,18 +200,18 @@ The script informs RPi3's IP address to the flask web server. The file should be
 # The IP address should be permanent to make the solution better
 URL="192.168.1.10:5000"
 
-/usr/bin/curl $URL/`/bin/hostname` > /dev/null 2>&1
+/usr/bin/curl $URL/`/bin/hostname` --connect-timeout 20 --max-time 20 > /dev/null 2>&1
 
 exit 0
 ```
 
 <pre>
-<b>$ sudo chmod a+x /etc/init.d/inform_other.sh</b>
-<b>$ sudo update-rc.d inform_other.sh defaults</b>
+$ <b>sudo chmod a+x /etc/init.d/inform_other.sh</b>
+$ <b>sudo update-rc.d inform_other.sh defaults</b>
 </pre>
 
 ### Reboot
 
 <pre>
-<b>$ sudo reboot now</b>
+$ <b>sudo reboot now</b>
 </pre>
