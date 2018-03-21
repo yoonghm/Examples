@@ -6,7 +6,7 @@ The official document could be downloaded from https://gpiozero.readthedocs.io/e
 
 ## Installation
 
-It is not included in the Rasbian Stretch lite package.
+It is not included in the Rasbian Stretch lite image.
 
 <pre>
 $ <b>python3 -c 'import gpiozero'</b>
