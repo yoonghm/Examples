@@ -72,7 +72,7 @@ epmd:x:121:130::/var/run/epmd:/bin/false
 The default bash shell prompt is `$`
 
 <pre>
-<b>$ ls</b>
+$ <b>ls</b>
 a    a.c    Desktop    Documents    Downloads
 </pre>
 
@@ -111,36 +111,36 @@ Below is an example of animated ASCII art from [https://www.cyberciti.biz/open-s
 The standard output of any shell is terminal.
 
 <pre>
-<b>$ echo Hello World!</b>
+$ <b>echo Hello World!</b>
 Hello World!
-<b>$ echo Hello              World!</b>
+$ <b>echo Hello              World!</b>
 Hello World!
-<b>$ echo "Hello              World!"</b>
+$ <b>echo "Hello              World!"</b>
 Hello              World!
-<b>$ echo -n "No new line"</b>
+$ <b>echo -n "No new line"</b>
 No new line$
-<b>$ printf 'Temperature = %6.2f\n\n' 34.1231</b>
+$ <b>printf 'Temperature = %6.2f\n\n' 34.1231</b>
 Temperature =   34.12
 
-<b>$ </b>
+$ <b></b>
 </pre>
 
 We can redirect standard output (from terminal) a file. The standard output (`STDOUT`) has file descriptor number 1.
 
 <pre>
-<b>$ echo "This is a line." > ./file.txt</b>
-<b>$ cat file.txt</b>
+$ <b>echo "This is a line." > ./file.txt</b>
+$ <b>cat file.txt</b>
 This is a line.
-<b>$ echo "This is another line." > ./file.txt</b>
-<b>$ cat file.txt</b>
+$ <b>echo "This is another line." > ./file.txt</b>
+$ <b>cat file.txt</b>
 This is another line.
-<b>$ echo "This line is appended." >> ./file.txt</b>
-<b>$ cat file.txt</b>
+$ <b>echo "This line is appended." >> ./file.txt</b>
+$ <b>cat file.txt</b>
 This is another line.
 This line is appended.
-<b>$ cat no_such_file >> ./file.txt</b>
+$ <b>cat no_such_file >> ./file.txt</b>
 cat: no_such_file: No such file or directory
-<b>$ cat file.txt</b>
+$ <b>cat file.txt</b>
 This is another line.
 This line is appended.
 </pre>
@@ -148,12 +148,12 @@ This line is appended.
 The error message is not appended to `file.txt` as it is output to standard error (`STDERR`) which is default to terminal and has file descriptor number 2.
 
 <pre>
-<b>$ cat no_such_file >> ./file.txt 2>&1</b>
-<b>$ cat file.txt</b>
+$ <b>cat no_such_file >> ./file.txt 2>&1</b>
+$ <b>cat file.txt</b>
 This is another line.
 This line is appended.
 cat: no_such_file: No such file or directory
-<b>$ </b>
+$ <b></b>
 </pre>
 
 ## Standard Input
@@ -161,29 +161,29 @@ cat: no_such_file: No such file or directory
 The standard input is keyboard (or mouse if it is an GUI application).
 
 <pre>
-<b>$ read -p "What is your name? "</b>
+$ <b>read -p "What is your name? "</b>
 What is your name? Yoong Hor Meng
-<b>$ read -p "What is your name? " name</b>
+$ <b>read -p "What is your name? " name</b>
 What is your name? <b><i>Yoong Hor Meng</i></b>
-<b>$ echo $name</b>
+$ <b>echo $name</b>
 Yoong Hor Meng
-<b>$ </b>
+$ <b></b>
 </pre>
 
 The input could be redirected from a file using `<` following by file name.
 
 <pre>
-<b>$ echo "This is a line." > file.txt</b>
-<b>$ echo "This is another line." >> file.txt</b>
-<b>$ wc < file.txt</b>
+$ <b>echo "This is a line." > file.txt</b>
+$ <b>echo "This is another line." >> file.txt</b>
+$ <b>wc < file.txt</b>
  2  8 38
-<b>$ </b>
+$ <b></b>
 </pre>
 
 The input could also be redirected from command line using *here-document* with `<<` followed by a string delimiter. Subsequent data are inputs. The end of input must be terminated by the same string delimiter in a separate line.
 
 <pre>
-<b>$ wc << EOF
+$ <b>wc << EOF
 > This is a line.
 > This is another line.
 > EOF</b>
@@ -212,25 +212,25 @@ Local variables are not passed to child processes forked by the shell.
 Variables could be displayed using builtin command `declare -p`.
 
 <pre>
-<b>$ 1myname = a</b>
+$ <b>1myname = a</b>
 1myname: command not found
-<b>$ 1myname=a</b>
+$ <b>1myname=a</b>
 1myname=a: command not found
-<b>$ myname=a</b>
-<b>$ echo myname</b>
+$ <b>myname=a</b>
+$ <b>echo myname</b>
 myname
-<b>$ echo $myname</b>
+$ <b>echo $myname</b>
 a
-<b>$ myname="a"</b>
-<b>$ echo $myname</b>
+$ <b>myname="a"</b>
+$ <b>echo $myname</b>
 a
-<b>$ echo $MyName</b>
+$ <b>echo $MyName</b>
 
-<b>$ declare | grep myname</b>
+$ <b>declare | grep myname</b>
 myname=a
-<b>$ declare -p | grep myname</b>
+$ <b>declare -p | grep myname</b>
 declare -- myname="a"
-<b>$ </b>
+$ <b></b>
 </pre>
 
 ### Environment Variables
@@ -244,20 +244,20 @@ Environment variables could be displayed using builtin commands `export -p` or `
 Environment variables are passed to child processes forked by the shell.
 
 <pre>
-<b>$ export -p | grep myname</b>
-<b>$ echo $myname</b>
+$ <b>export -p | grep myname</b>
+$ <b>echo $myname</b>
 a
-<b>$ export MYNAME="Yoong Hor Meng"</b>
-<b>$ echo $MYNAME</b>
+$ <b>export MYNAME="Yoong Hor Meng"</b>
+$ <b>echo $MYNAME</b>
 Yoong Hor Meng
-<b>$ env | grep MYNAME</b>
+$ <b>env | grep MYNAME</b>
 MYNAME=Yoong Hor Meng
-<b>$ declare | grep MYNAME</b>
+$ <b>declare | grep MYNAME</b>
 MYNAME='Yoong Hor Meng'
-<b>$ export -p | grep MYNAME</b>
+$ <b>export -p | grep MYNAME</b>
 declare -x MYNAME="Yoong Hor Meng"
-<b>$ export -p | grep myname</b>
-<b>$ </b>
+$ <b>export -p | grep myname</b>
+$ <b></b>
 </pre>
 
 Variables could be assigned to another variables.  There is a different to enclose variable with single or double quoations:
@@ -266,13 +266,13 @@ Variables could be assigned to another variables.  There is a different to enclo
 - Shell will *not* expand variables enclosed in single quotation (**'**)
 
 <pre>
-<b>$ double="I am $MYNAME"</b>
-<b>$ echo $double</b>
+$ <b>double="I am $MYNAME"</b>
+$ <b>echo $double</b>
 I am Yoong Hor Meng
-<b>$ single='I am $MYNAME'</b>
-<b>$ echo $single</b>
+$ <b>single='I am $MYNAME'</b>
+$ <b>echo $single</b>
 I am $MYNAME
-<b>$ </b>
+$ <b></b>
 </pre>
 
 ## Bash Script
@@ -294,25 +294,25 @@ echo "Hello World!"
 There are two way to execute the script:
 
 a. **Call the script via bash**<br>
-   In this case, the *shh-bang* line is not important.
+   In this case, the *shebang* line is not important.
 
 <pre>
-<b>$ bash ./hello.sh</b>
+$ <b>bash ./hello.sh</b>
 Hello World!
 </pre>
 
 b. **Make the script executable**<br>
-   In this case, the *shh-bang* line decides which program to run the script.
+   In this case, the *shebang* line decides which program to run the script.
 
 <pre>
-<b>$ ls -l hello.sh</b>
+$ <b>ls -l hello.sh</b>
 -rw-rw-r-- 1 spsy spsy 34 Mar 19 02:01 hello.sh
-<b>$ chmod u+x hello.sh</b>
-<b>$ ls -l hello.sh</b>
+$ <b>chmod u+x hello.sh</b>
+$ <b>ls -l hello.sh</b>
 -rwxrw-r-- 1 spsy spsy 34 Mar 19 02:01 hello.sh
-<b>$ ./hello.sh</b>
+$ <b>./hello.sh</b>
 Hello World!
-<b>$ </b>
+$ <b></b>
 </pre>
 
 ## Arithmetic
@@ -322,41 +322,41 @@ It used to be complicated to perform arithmetic in shell.  New versions of `bash
 Use builtin command `let` to perform arithmetic.
 
 <pre>
-<b>$ x=2</b>
-<b>$ x=x+1</b>
-<b>$ echo $x</b>
+$ <b>x=2</b>
+$ <b>x=x+1</b>
+$ <b>echo $x</b>
 x=x+1
-<b>$ x=2</b>
-<b>let x=x+1</b>
-<b>$ echo $x</b>
+$ <b>x=2</b>
+$ <b>let x=x+1</b>
+$ <b>echo $x</b>
 3
-<b>$ x=2</b>
-<b>x=x**3</b>
-<b>$ echo $x</b>
+$ <b>x=2</b>
+$ <b>x=x**3</b>
+$ <b>echo $x</b>
 x**3
-<b>$ x=2</b>
-<b>let x=x**3</b>
-<b>$ echo $x</b>
+$ <b>x=2</b>
+$ <b>let x=x**3</b>
+$ <b>echo $x</b>
 8
-<b>$ x=2</b>
-<b>x+=1</b>
-<b>$ echo $x</b>
+$ <b>x=2</b>
+$ <b>x+=1</b>
+$ <b>echo $x</b>
 21
-<b>$ x=2</b>
-<b>let x+=1</b>
-<b>$ echo $x</b>
+$ <b>x=2</b>
+$ <b>let x+=1</b>
+$ <b>echo $x</b>
 3
-<b>$ x=2</b>
-<b>$ y=3</b>
-<b>$ let z=x+y</b>
-<b>$ echo $z</b>
+$ <b>x=2</b>
+$ <b>y=3</b>
+$ <b>let z=x+y</b>
+$ <b>echo $z</b>
 5
-<b>$ let x=9</b>
-<b>$ let q=x/4</b>
-<b>$ let r=x%4</b>
-<b>$ echo Quotion= $q remainder= $r</b>
+$ <b>let x=9</b>
+$ <b>let q=x/4</b>
+$ <b>let r=x%4</b>
+$ <b>echo Quotion= $q remainder= $r</b>
 Quotion= 2 remainder= 1
-<b>$ </b>
+$ <b></b>
 </pre>
 
 ## Branching, Conditions and Loops
@@ -399,16 +399,16 @@ elif [ $number -lt 100 ]
 Let's make the script execuitable by the owner:
 
 <pre>
-<b>$ chmod u+x ask.sh</b>
+$ <b>chmod u+x ask.sh</b>
 </pre>
 
 Run the script:
 
 <pre>
-<b>$ ./ask.sh</b>
+$ <b>./ask.sh</b>
 Enter a number: 200
 The number is greater than 100
-<b>$ ./ask.sh</b>
+$ <b>./ask.sh</b>
 Enter a number: 100
 The number is 100
 </pre>
@@ -434,14 +434,14 @@ done
 *Note: Double parentheses are used to evaluate arithmetic expression.  It is not necessary to use `$` for variables.*
 
 <pre>
-<b>$ chmod u+x hello_count.sh</b>
-<b>$ ./hello_count.sh</b>
+$ <b>chmod u+x hello_count.sh</b>
+$ <b>./hello_count.sh</b>
 Hello World for    0
 Hello World for    1
 Hello World for    2
 Hello World for    3
 Hello World for    4
-<b>$ </b>
+$ <b></b>
 </pre>
 
 Let's create another script `ask2.sh` which is similar to `ask.sh` than repeatedly ask for number until user enter `q`.
@@ -451,7 +451,7 @@ There is no `do` ... `while` ... `done` loop syntax in `bash` shell. Hence it is
 ```bash
 #!/bin/bash
 
-read -p "Enter a number( q to quit): " number
+read -p "Enter a number (q to quit): " number
 
 while [ "$number" != "q" ]
 do
@@ -473,7 +473,7 @@ done
 We can provide input the the script using here-document:
 
 <pre>
-<b>$ ./ask2.sh << EOF
+$ <b>./ask2.sh << EOF
 101
 100
 99
@@ -482,18 +482,18 @@ EOF</b>
 The number is greater than 100
 The number is 100
 The number is less than 10
-<b>$ </b>
+$ <b></b>
 </pre>
 
 `Note: Non-arithmetic expressions are enclosed in square brackets`
 
 <pre>
-<b>$ chmod u+x ask2.sh</b>
-<b>$ ./ask2.sh</b>
+$ <b>chmod u+x ask2.sh</b>
+$ <b>./ask2.sh</b>
 Enter a number( q to quit): 100
 The number is 100
 Enter a number( q to quit): q
-<b>$ </b>
+$ <b></b>
 </pre>
 
 ### `for` loop
@@ -514,14 +514,14 @@ done
 ```
 
 <pre>
-<b>$ chmod u+x forloop1.sh</b>
-<b>$ ./forloop1.sh</b>
+$ <b>chmod u+x forloop1.sh</b>
+$ <b>./forloop1.sh</b>
 1
 2
 3
 4
 5
-<b>$ </b>
+$ <b></b>
 </pre>
 
 
