@@ -1,6 +1,6 @@
 # Jupyter Tips
 
-## Changing Default Indentation
+## Changing Default Indentation to 2 Spaces
 
 Enter the following snippet in the browser's JavaScript console once.
 
@@ -17,7 +17,7 @@ config.update(patch)
 
 Then reload the notebook. This setting is persistent.
 
-## Restore Default Indentation
+## Restore Default (4 Spaces) Indentation
 
 Enter the following snippet in the browser's JavaScript console once:
 
