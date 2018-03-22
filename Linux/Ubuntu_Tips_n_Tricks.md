@@ -24,13 +24,13 @@
 ## Reduce swap partition in `/dev/sda5`
 
 <pre>
-<b>$ sudo swapoff /dev/sda5</b>
-<b>$ # Split /dev/sda5 into 2 partition, say /dev/sda5 and /dev/sda6</b>
-<b>$ # Mark /dev/sda5 as swap partition</b>
-<b>$ sudo mkswap /dev/sda5</b>
-<b>$ sudo swapon /dev/sda5</b>
-<b>$ sudo mkfs ext4 /dev/sda6</b>
-<b>$ # Update /etc/fstab for /dev/sda6</b>
+$ <b>sudo swapoff /dev/sda5</b>
+$ # Split /dev/sda5 into 2 partition, say /dev/sda5 and /dev/sda6
+$ # Mark /dev/sda5 as swap partition
+$ <b>sudo mkswap /dev/sda5</b>
+$ <b>sudo swapon /dev/sda5</b>
+$ <b>sudo mkfs ext4 /dev/sda6</b>
+$ # Update /etc/fstab for /dev/sda6
 </pre>
 
 ## Free up Space in Ubuntu
@@ -40,6 +40,11 @@
 <b>$ sudo apt-get autoremove --purge    # Remove old kernels</b>
 <b>$ apt list --installed               # Find out unused packages
 <b>$ # apt-get remove package_name1</b>
+</pre>
+
+You may want to remove cached files from Anaconda
+<pre>
+$ <b> conda clean --all</b>
 </pre>
 
 ## Open a Terminal
