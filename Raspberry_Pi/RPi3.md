@@ -165,6 +165,35 @@ NTP=153.20.80.88 153.20.81.88
 FallbackNTP=52.163.118.68
 ```
 
+### Update Raspbian, Install Necessary Pacakges and Clean Up Obsolete Packages
+
+<pre>
+$ <b>sudo apt update</b>
+$ <b>sudo apt upgrade</b>
+$ <b>sudo apt install python3-gpiozero festival
+$ <b>sudo apt clean</b>
+$ <b>sudo apt autoremove<b>
+</pre>
+
+### Raspberry Pi speaks outs its IP address using festival
+
+Festival is a general purpose text-to-speech system. Raspberry Pi 3 has an audio output which could be used to output the audio.
+
+Using your favourite text editor, add the following line before `fi` in `/etc/rc.local` script
+
+```bash
+hostname -I | /usr/bin/festival --tts
+```
+
+Alternatively used `sed` to change it:
+
+```bash
+sudo sed -i '
+/^fi/i \
+  hostname -I | /usr/bin/festival --tts' \
+rc.local
+```
+
 ### Test a http connection to the flask web server setup earlier
 
 <pre>
