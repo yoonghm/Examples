@@ -40,19 +40,19 @@ network={
   id_str="home"  # Optional string to identify the network configuration
 }
 
-# The configuration below is for WPA/WPA2 Enterprise WiFi network for NPWirelessx
+# The configuration below is for WPA2 Enterprise WiFi network for NPWirelessx
 # You may encrypt the password field (in double quotation) with md4
 #   1. Comment out password with '#' in front of password
 #   2. Generate MD4 hashed password using the following command
 #     echo -n 'secret_password' | iconv -t utf16le | openssl md4   
-#   3. Copy the generated encrypted passphrase into psk. Do not enclosure it with double quotation
+#   3. Copy the generated MD4 encrypted password into password after 'hash:'. Do not enclosure it with double quotation
 network={
   ssid="NPWirelessx"
   key_mgmt=WPA-EAP
   eap=PEAP
   identity="user_id"  # Replace it with your user id
   # password="secret_password"
-  password=hash:7da534016188e561da0546d3e8bf04de
+  password=hash:7da534016188e561da0546d3e8bf04dead213  # Replace this value with MD4 encrypted password
   phase1="peaplabel=0"
   phase2="auth=MSCHAPV2"
   priority=0     # Optional configuration: Lower value takes precedence
@@ -62,7 +62,7 @@ network={
 
 This file will be copied to `/etc/wpa_supplicant/wpa_supplicant.conf` in the next bootup
 
-If the RPi3 is booted, you can change the file directly in `/etc/wpa_supplicant/wpa_supplicant.conf`.
+**Note:** If the RPi3 is booted, you can change the file directly in `/etc/wpa_supplicant/wpa_supplicant.conf`.
 You can restart the networking using the following commands
 
 $ <b>sudo service networking restart</b>
@@ -77,10 +77,9 @@ Power it up.
 
 The IP address will be shown on the console or heard from audio output via a speaker or a pair of ear piece.
 
-The following information may be helpful for you to find your raspberrypi:
-
+The following information may be helpful for you to find your raspberrypi in your network:
 - Hostname is `raspberrypi`
-- You may use `arp -a` to scan MAC addresses begins with 'b8:27:eb`
+- You may use `arp -a` to scan connected WiFi devices with MAC addresses begins with 'b8:27:eb`
 
 ## Configuration After First Boot
 
@@ -89,7 +88,7 @@ Login to the RPi3 using the keyboard and monitor with the following information
 **User:** pi
 **Password:** raspberry
 
-If the network is properly configure, you may use SSH to login to the RPI3. Assume RPi3's address is **192.168.1.9**
+If the network is properly configured, you may use SSH to login to the RPI3. Assume RPi3's address is **192.168.1.9**
 
 <pre>
 $ <b>ssh pi@192.168.1.9</b>
