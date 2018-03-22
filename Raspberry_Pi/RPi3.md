@@ -8,151 +8,100 @@ The latest Raspbian OS could be download from [https://www.raspberrypi.org/downl
 
 As of 2018 March, the latest Raspbian OS is Stretch.
 
+We will use the **Lite** edition as we do not need graphical interface.
+
 ### Flash Raspbian OS on a microSD Card (> 8GB)
 
 Use any suitable flashing tools such as [Etcher](https://etcher.io/)
 
 Re-insert the microSD card into your computer.  You should be to see a new drive labelled `boot`.
 
-## Configuration Before First Boot
+Let's make changes to the contents within microSD card
+1.  Create an empty file `ssh` in the root directory of the microSD card. This enables SSH so that we can remotely login to the RPi3 using SSH protocol.
 
-### Enable SSH within RPi3
-
-Create an empty file `ssh` in the root directory of the microSD card.
-
-### Configure WiFi
-
-Create `wpa_supplicant.conf` in the root directory of the microSD card.
-You may use the template below.
+1.  Create `wpa_supplicant.conf` in the root (`/`) directory of the microSD card.
 
 ```
-# File: /etc/wpa_supplicant/wpa_supplicant.conf
-
-###
-### Do not allow wpa_cli or wpa_gui to update it
-###
 update_config=0
-
-###
-### Directory for UNIX domain sockets and access control
-###
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 
-
-#######################################################################
-# Home
-#######################################################################
-
+# The configuration below is for WPA/WPA2 Personal WiFi network
+# You may encrypt the psk field (in double quotation) with wpa_passphrase
+#   1. Comment out psk with '#' in front of psk
+#   2. Generate encrypted psk on your unquoted ssid and psk values using wpa_passphase
+#        wpa_passphase my_ssid my_passphrase
+#   3. Copy the generated encrypted passphrase into psk. Do not enclosure it with double quotation
 network={
-  ssid="my_ssid"
-  psk="my_passphrase"
-  ## psk is in plain text and should be encrypted
-  ## Use wpa_passphrase "ssid" "psk" to generate long psk
-  ##   wpa_passphrase my_ssid my_passphase
-  psk=long_hashed_psk_using_wpa_passphrase_on_ssid_and_passphrase
+  ssid="my_ssid"  # Replace it with your ssid
+  #psk="my_passphrase"  # Replace it with your passphrase
+  psk=07dc9a98201ab213131c3d2e6361628317317391391893193219  # Replace this value with encrypted passphrase
   key_mgmt=WPA-PSK
-  priority=99
-  id_str="home"
+  priority=99    # Optional configuration: Lower value takes precedence
+  id_str="home"  # Optional string to identify the network configuration
 }
 
-#######################################################################
-# NPWirelessx
-#######################################################################
+# The configuration below is for WPA/WPA2 Enterprise WiFi network for NPWirelessx
+# You may encrypt the password field (in double quotation) with md4
+#   1. Comment out password with '#' in front of password
+#   2. Generate MD4 hashed password using the following command
+#     echo -n 'secret_password' | iconv -t utf16le | openssl md4   
+#   3. Copy the generated encrypted passphrase into psk. Do not enclosure it with double quotation
 network={
   ssid="NPWirelessx"
   key_mgmt=WPA-EAP
   eap=PEAP
-  identity="user_id"
+  identity="user_id"  # Replace it with your user id
   # password="secret_password"
   password=hash:7da534016188e561da0546d3e8bf04de
-  # Use md4 to hash password which is in plaintext
-  #   echo 'your_plaintext_password' | iconv -t utf16le | openssl md4 | awk '{print $2}'
   phase1="peaplabel=0"
   phase2="auth=MSCHAPV2"
-  priority=0
-  id_str="work"
+  priority=0     # Optional configuration: Lower value takes precedence
+  id_str="work"  # Optional string to identify the network configuration
 }
-
-# Hashed password is obtained via
-# echo 'your_plaintext_password' | iconv -t utf16le | openssl md4 | awk '{print $2}'
-#
-# You can do it via vi by putting the cursor after "hash:"
-# :r !echo -n 'your_plaintext_password' | iconv -t utf16le | openssl md4 | awk '{print $2}'
-#
-# Restart your networking
-# sudo service networking restart
 ```
+
+This file will be copied to `/etc/wpa_supplicant/wpa_supplicant.conf` in the next bootup
+
+If the RPi3 is booted, you can change the file directly in `/etc/wpa_supplicant/wpa_supplicant.conf`.
+You can restart the networking using the following commands
+
+$ <b>sudo service networking restart</b>
 
 ## Boot RPi3
 
-Insert the configured bootable microSD card into RPi3 and power it up.
+Insert the configured bootable microSD card into RPi3.
 
-The following information may be helpful for you to find your raspberrypi
+Connect USB keyboard and HDMI monitor to RPi3.
+
+Power it up.
+
+The IP address will be shown on the console or heard from audio output via a speaker or a pair of ear piece.
+
+The following information may be helpful for you to find your raspberrypi:
 
 - Hostname is `raspberrypi`
-- MAC address has `b8:27:eb` prefix.
-
-You may use `arp -a` to scan MAC addresses.
-
-## Setup a Linux box hosted in a virtual machine from your computer
-
-Use "Bridged Adapter" for the network adapter.  Take note of the IP address of the Linux.
-Assume Linux box's IP address is **192.168.1.10**.
-
-Create a file named `flask_web.py`
-
-```python
-from flask import Flask
-app = Flask(__name__)
-
-@app.route('/')
-def hello_world():
-  return 'Hello, World!\n'
-
-if __name__ == "__name__":
-  app.run()
-```
-
-Run the flask web server:
-
-<pre>
-$ <b>FLASK_APP=flask_web.py flask run -h 0.0.0.0</b>
- * Serving Flask app "flask_web"
- * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-</pre>
-
-If you use `flask` in Microsoft Windows, use the following command
-<pre>
-C:\><b>set FLASK_APP=flask_web.py</b>
-C:\><b>flask run</b>
-</pre>
+- You may use `arp -a` to scan MAC addresses begins with 'b8:27:eb`
 
 ## Configuration After First Boot
 
-Login from the Linux box to RPi3 using `ssh`.  Assume RPi3's address is **192.168.1.9**
+Login to the RPi3 using the keyboard and monitor with the following information
+
+**User:** pi
+**Password:** raspberry
+
+If the network is properly configure, you may use SSH to login to the RPI3. Assume RPi3's address is **192.168.1.9**
 
 <pre>
 $ <b>ssh pi@192.168.1.9</b>
 </pre>
 
-Make the following changes:
-
-###  `sudo raspi-config`
-
+Using `sudo raspi-config` to make the following changes:
 - Change password for user `pi`
 - Enable one-wire interface
 - Change hostname to a unique and better name
+- Change timezone to `Asia/Singapore`
+- Change keyboard layout to "Generic 101-key PC" and then "English (US)" and then "The default for the keyboard input"
 - Expand filesystem to use all microSD card storage
-
-### Change keyboard layout in `/etc/default/keyboard` from `"gb"` to `"us"`
-
-After this changes, `ALT+F1` ... `ALT+F12` give you additional 11 terminal sessions.
-
-### Set timezone to `Asia/Singapore`
-
-<pre>
-$ <b>sudo timedatectl set-timezone Asia/Singapore</b>
-</pre>
 
 ### Set time synchronization server
 
