@@ -1,4 +1,10 @@
-# Jupyter Tips
+# Jupyter Notebook Tips
+
+## Start Jupyter Notebook via Command Line
+
+<pre>
+$ <b>jupyter notebook</b>
+</pre>
 
 ## Changing Default Indentation to 2 Spaces
 
