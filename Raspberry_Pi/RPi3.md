@@ -156,10 +156,10 @@ exit 0
 Alternatively used `sed` to change it:
 
 ```bash
-sudo sed -i '
-/^fi/i \
-  /bin/hostname -I | /usr/bin/festival --tts' \
-rc.local
+$ <b>sudo sed -i '</b>
+><b> /^fi/i \</b>
+><b>  /bin/hostname -I | /usr/bin/festival --tts' \</b>
+><b>rc.local</b>
 ```
 
 ### Reboot
