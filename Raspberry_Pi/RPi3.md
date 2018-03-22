@@ -143,51 +143,6 @@ sudo sed -i '
 rc.local
 ```
 
-### Test a http connection to the flask web server setup earlier
-
-<pre>
-$ <b>curl 192.168.1.10:5000</b>
-</pre>
-
-The terminal that run the flask web server shuld should you a new message:
-
-```
-192.168.1.9 - - [21/Mar/2018 01:48:43] "GET / HTTP/1.1" 200 -
-```
-
-It shows that they are connected.
-
-### Create a startup script `/etc/init.d/inform_other.sh`
-
-The script informs RPi3's IP address to the flask web server. The file should be owned by root and has its executable bits enable.
-
-
-```bash
-#! /bin/sh
-
-### BEGIN INIT INFO
-# Provides:          YoongHM
-# Required-Start:    $local_fs $remote_fs $network $syslog
-# Required-Stop:     $local_fs $remote_fs $network $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: Inform other about my IP address obtained via DHCP
-# Description: Inform other about my IP address obtained via DHCP
-### END INIT INFO
-
-# The IP address should be permanent to make the solution better
-URL="192.168.1.10:5000"
-
-/usr/bin/curl $URL/`/bin/hostname` --connect-timeout 20 --max-time 20 > /dev/null 2>&1
-
-exit 0
-```
-
-<pre>
-$ <b>sudo chmod a+x /etc/init.d/inform_other.sh</b>
-$ <b>sudo update-rc.d inform_other.sh defaults</b>
-</pre>
-
 ### Reboot
 
 <pre>
