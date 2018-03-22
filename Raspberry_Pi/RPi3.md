@@ -45,7 +45,7 @@ network={
 #   1. Comment out password with '#' in front of password
 #   2. Generate MD4 hashed password using the following command
 #     echo -n 'secret_password' | iconv -t utf16le | openssl md4   
-#   3. Copy the generated MD4 encrypted password into password after 'hash:'. Do not enclosure it with double quotation
+#   3. Copy encrypted password into password after 'hash:'. Do not enclosure it with double quotation
 network={
   ssid="NPWirelessx"
   key_mgmt=WPA-EAP
@@ -120,7 +120,7 @@ $ <b>sudo apt update</b>
 $ <b>sudo apt upgrade</b>
 $ <b>sudo apt install python3-gpiozero festival</b>
 $ <b>sudo apt clean</b>
-$ <b>sudo apt autoremove<b>
+$ <b>sudo apt autoremove</b>
 </pre>
 
 ### Raspberry Pi speaks outs its IP address using festival
