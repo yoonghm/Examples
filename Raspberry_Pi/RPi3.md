@@ -118,7 +118,7 @@ FallbackNTP=52.163.118.68
 <pre>
 $ <b>sudo apt update</b>
 $ <b>sudo apt upgrade</b>
-$ <b>sudo apt install python3-gpiozero festival
+$ <b>sudo apt install python3-gpiozero festival</b>
 $ <b>sudo apt clean</b>
 $ <b>sudo apt autoremove<b>
 </pre>
