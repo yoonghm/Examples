@@ -190,7 +190,7 @@ Alternatively used `sed` to change it:
 ```bash
 sudo sed -i '
 /^fi/i \
-  hostname -I | /usr/bin/festival --tts' \
+  /bin/hostname -I | /usr/bin/festival --tts' \
 rc.local
 ```
 
