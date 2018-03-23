@@ -162,6 +162,8 @@ $ <b>sudo sed -i '</b>
 ><b>rc.local</b>
 </pre>
 
+ou can use `iwconfig` to find out WiFi network used by your RPi3.
+
 ### Reboot
 
 <pre>
