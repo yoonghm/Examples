@@ -12,6 +12,8 @@ It provides UART interface with a host controller (another micontroller or PC).
 
 It support WPA/WPA2 personal, WPA Enterpeise, TLS security protocols. it provides DHCP, DNS, TCP/IP (IPv4), UDP, HTTP and HTTPS network protocols.
 
+When it is in AP (Access Point) mode, it only supports 1 client.
+
 The references to the ATWINC15x0-MR210xB module include the module devices listed in the following:
 
 - ATWINC1500-MR210PB (4 MB flash, OTA, PCB antenna)
