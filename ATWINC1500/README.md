@@ -33,6 +33,9 @@ The references to the ATWINC15x0-MR210xB module include the module devices liste
 
 *Figure:* **Interface between ATWINC1500 and host microcontroller**
 
+<img align="lect" src="./ATWINC15x0-MR210xB_Architecture.png" alt="ATWINC1500 System Architecture" />
+
+*Figure:* **ATWINC1500 System Architecture**
 
 ## CPU and Memory Subsystems
 
