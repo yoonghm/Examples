@@ -155,9 +155,16 @@ ATWINC15x0-MR210xB can function in the following modes:
   Enable Wi-Fi devices to communicate without the use of dedicated access point.\
   This process begins with a WiFi Direct device scanning for other WiFi Derect devices. When another device is discovered, the devices will negotiate which device will function as the Group Owner (GO). The GO functions very similarly to AP. Once the GO is established, the other devices in the P2P group, (known as Clients), are able to connect to the GO in the same manner that STA's connect to AP's. The role of GO cannot be transferred to one of the Clients in the group. If the GO leaves the P2P group, the group is destroyed and must be reformed in order for the devices to continue to communicate.\
   ATWINC15x0-MR210xB is capable to operate as client in P2P mode only by calling `m2m_wifi_p2P()`.
-  
-  
+
 - **Monitoring mode** (Sniffer mode)\
+  ATWINC15x0-MR210xB receives all packets on a selected wireless channel.\
+  User can configure filters so that only specific types of packets are passed to the application.\
+  Call `m2m_wifi_enable_monitoring_mode()` to enter this mode.
+
+<img src="./ATWINC15x0-MR210xB_Mode_Transition.jpg" alt=Mode Transition Diagram" />
+
+*Figure:* **ATWINC15x0-MR210xB Mode Transition Diagram**
+
 
 
 ## Power Consumption
