@@ -10,7 +10,7 @@ It provides SPI slave interface with a slave master (another microcontroller).
 
 It provides UART interface with a host controller (another micontroller or PC).
 
-It support WPA/WPA2 personal, WPA Enterpeise, TLS and SSL security protocols. it provides DHCP, DNS, TCP/IP (IPv4), UDP, HTTP and HTTPS network protocols.
+It support WPA/WPA2 personal, WPA Enterpeise, TLS security protocols. it provides DHCP, DNS, TCP/IP (IPv4), UDP, HTTP and HTTPS network protocols.
 
 The references to the ATWINC15x0-MR210xB module include the module devices listed in the following:
 
@@ -27,13 +27,13 @@ The references to the ATWINC15x0-MR210xB module include the module devices liste
 
 *Figure:* **ATWINC1500 Pins**
 
-## SPI Slave Inteface
+## SPI Slave Interface
 
 ATWINC15x0-MR210xB provides a full-duplex slave Serial Peripheral Interface (SPI) to host (microcontroller) that can be used for control and for serial I/O of IEEE 802.11 data.  The pin 10 `SPI_CFG` must be tied to VDDIO via a 1 MΩ resistor.
 
 | Pin No. | Name       | Description                                                         |
 |:-------:|:----------:|:--------------------------------------------------------------------|
-|    10   | `SPI_CFG`  | Tie to `VDDIO` through a 1-MΩ resistor to enable the SPI interface  |
+|    10   | `SPI_CFG`  | Use 1-MΩ pull-up resistor to enable the SPI interface               |
 |    15   | `SPI_RXD`  | SPI MOSI (Master Output, Slave In) pin                              |
 |    16   | `SPI_SSN`  | SPI Slave Select, active low                                        |
 |    17   | `SPI_TXD`  | SPI MISO (Master In, Slave Out)                                     |
@@ -49,6 +49,30 @@ ATWINC15x0-MR210xB support Universal Asynchronous Receiver/Transmitter (UART) in
 
 | Pin No. | Name       | Description                                                         |
 |:-------:|:----------:|:--------------------------------------------------------------------|
-|    14   | `UART_TXD` | UART transmit output from ATWINC15x0-MR210xB                        |
-|    19   | `UART_RXD` | UART receive input to ATWINC15x0-MR210xB                            |
+|    14   | `UART_TXD` | UART Transmit. Output from ATWINC15x0-MR210xB                       |
+|    19   | `UART_RXD` | UART Receive. Input to ATWINC15x0-MR210xB                           |
 
+## I2C Interface (In Development)
+
+ATWINC15x0-MR210xB provides I2C interfacw which is still under development as in March 2018.
+
+| Pin No. | Name       | Description                                                         |
+|:-------:|:----------:|:--------------------------------------------------------------------|
+|     2   | `I2C_SCL ` | I2C Slave clock. Under development                                  |
+|     3   | `I2C_SDA`  | I2C Slave Data. Under Development                                   |
+
+## Other Interface Pins
+
+ATWINC15x0-MR210xB provides several pins for GPIO, Wake, Interrupt, Enable and Reset.
+
+| Pin No. | Name         | Description                                                       |
+|:-------:|:------------:|:------------------------------------------------------------------|
+|     1   | `GPIO_6`     | General purpose I/O                                               |
+|     4   | `RESET_N`    | Hard reset. Active-low. Use 1-MΩ pull-up resistor                 |
+|    11   | `WAKE`       | Host wake up ATWINC15x0-MR210xB from doze mode                    |
+|    13   | `IRQN`       | Output interrupt from ATWINC15x0-MR210xB to host                  |
+|    21   | `GPIO_1/RTC` | General purpose I/O / RTC                                         |
+|    22   | `CHIP_EN`    | Use 1-MΩ pull-up resistor to put module to active mode. A low place it to power-down mode |
+|    25   | `GPIO_3`     | General purpose I/O                                               |
+|    26   | `GPIO_4`     | General purpose I/O                                               |
+|    27   | `GPIO_5`     | General purpose I/O                                               |
