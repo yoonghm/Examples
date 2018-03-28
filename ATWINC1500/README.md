@@ -29,7 +29,7 @@ ATWINC1500 provides a full-duplex slave Serial Peripheral Interface (SPI) that c
 | Pin No. | Name       | Description                                                         |
 |:-------:|:----------:|:--------------------------------------------------------------------|
 |    10   | `SPI_CFG`  | Tie to `VDDIO` through a 1-MΩ resistor to enable the SPI interface  |
-|    13   | `SPI_RXD`  | SPI MOSI (Master Output, Slave In) pin                              |
+|    15   | `SPI_RXD`  | SPI MOSI (Master Output, Slave In) pin                              |
 |    16   | `SPI_SSN`  | SPI Slave Select, active low                                        |
 |    17   | `SPI_TXD`  | SPI MISO (Master In, Slave Out)                                     |
 |    18   | `SPI_CLK`  | SPI Clock                                                           |
