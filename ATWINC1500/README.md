@@ -73,6 +73,8 @@ When the SPI is not selected (`SPI_SSN` is high), the SPI will not interfere wit
 
 `SPI_SSN`, `SPI_MOSI`, `SPI_MISO` and `SPI_SCK` pins have internal programmable pull-up resistors. The resistors should be programmed to be disabled.  Otherwise, if any of the SPI pins are driven to a low level while ATWINC15x0-MR210xB is in the low power sleep stage, current will flow from the VDDIO supply through the pull-up resistors, hence increse current consumption during low power sleep mode.
 
+Other unused pins should have its pull-up resistor enable to keep then from floating, which can cause excess current to flow through the pin from the VDDIO supply.  Pull-up resistor is approximately 100 kΩ, hence the leakage current is about VDD10/100k = 3.3/100k = 3.3 μA.
+
 ATWINC15x0-MR210xB supports four standard SPI modes determined by Clock Priority (CPOL) and Clock Phase (CPHA) settings.
 
 ### UART Interface
@@ -122,18 +124,27 @@ ATWINC15x0-MR210xB provides several pins for GPIO, Wake, Interrupt, Enable and R
 ATWINC15x0-MR210xB has several states:
 
 **ON_TRANSMIT**\
-ATWINC15x0-MR210xB is actively transmitting an 802.11 signal. Highest output power and nominal current consumption.
+ATWINC15x0-MR210xB is actively transmitting an 802.11 signal. Highest output power and nominal current consumption.\
+`VDDIO` is ON and `CHIP_EN` is high.
 
 **ON_Receive**\
-ATWINC15x0-MR210xB is actively receiving an 802.11 signal. Lowest sensitivity and nominal current consumption.
+ATWINC15x0-MR210xB is actively receiving an 802.11 signal. Lowest sensitivity and nominal current consumption.\
+`VDDIO` is ON and `CHIP_EN` is high.
 
 **ON_Doze**\
-ATWINC15x0-MR210xB is ON but is neither transmitting nor receiving.
+ATWINC15x0-MR210xB is ON but is neither transmitting nor receiving.\
+`VDDIO` is ON and `CHIP_EN` is high.\
+Current consumption is < 10μ A from `VDDIO` pin.
 
 **Power_Down**\
-ATWINC15x0-MR210xB core supply is off. Only leakage current is present.
+ATWINC15x0-MR210xB core supply is off. Only leakage current is present.\
+`VDDIO` is ON and `CHIP_EN` is low.
+Current consumption is < 3.5μ A from `VDDIO` pin.
 
 **IDLE_Connect**\
-ATWINC15x0-MR210xB is connected with 1 DTIM (Delivery Traffic Indication Map) beacon interval.
+ATWINC15x0-MR210xB is connected with 1 DTIM (Delivery Traffic Indication Map) beacon interval.\
+`VDDIO` is ON and `CHIP_EN` is high.
 
+**Power_Off**\
+DC/DC converter output and `VDDIO` pins are at ground potential.
 
