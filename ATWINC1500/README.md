@@ -12,7 +12,11 @@ It provides UART interface with a host controller (another micontroller or PC).
 
 It support WPA/WPA2 personal, WPA Enterpeise, TLS security protocols. it provides DHCP, DNS, TCP/IP (IPv4), UDP, HTTP and HTTPS network protocols.
 
-When it is in AP (Access Point) mode, it only supports 1 client.
+It is able to operate up to 7 TCP sockets (as client or server) and up to 4 UDP sockets (client or server).
+
+When it is in AP (Access Point) mode, it supports OPEN and WEP securities and allows 1 client.
+
+AP and STA modes cannot co-exist.
 
 The references to the ATWINC15x0-MR210xB module include the module devices listed in the following:
 
@@ -74,6 +78,8 @@ ATWINC15x0-MR210xB provides a full-duplex slave Serial Peripheral Interface (SPI
 |    17   | `SPI_TXD`  | SPI MISO (Master In, Slave Out)                                     |
 |    18   | `SPI_CLK`  | SPI Clock                                                           |
 
+The maximum SPI speed is 48 MHz.
+
 When the SPI is not selected (`SPI_SSN` is high), the SPI will not interfere with data transfers between master (host) and other SPI slave devices in the same SPI bus.
 
 `SPI_SSN`, `SPI_MOSI`, `SPI_MISO` and `SPI_SCK` pins have internal programmable pull-up resistors. The resistors should be programmed to be disabled.  Otherwise, if any of the SPI pins are driven to a low level while ATWINC15x0-MR210xB is in the low power sleep stage, current will flow from the VDDIO supply through the pull-up resistors, hence increse current consumption during low power sleep mode.
@@ -124,6 +130,36 @@ ATWINC15x0-MR210xB provides several pins for GPIO, Wake, Interrupt, Enable and R
 |    26   | `GPIO_4`     | General purpose I/O                                               |
 |    27   | `GPIO_5`     | General purpose I/O                                               |
 
+## Opertion Modes
+
+ATWINC15x0-MR210xB can function in the following modes:
+
+- **Idle** mode\
+  Enter when `m2m_wifi_init()` is called.\
+  IEEE 802.11 radio and Cortus CPU are disabled.
+  
+- **Station** (STA) mode\
+  Enter when `m2m_wifi_request_scan()` is called.\
+  ATWINC15x0-MR210xB is able to scan and connect to access points.\
+  It is possible to adjust how long ATWINC15x0-MR210xB scans each WiFi channel before it switches to the next channel. The longer the device spends on each channel, the more likely it is to detect an AP.  However, increasing this time wait also cause it to consume more power.\
+  Use `m2m_wifi_connect()` or `m2m_wifi_defualt_connect()` to connect to an AP.\
+  Use `m2m_wifi_disconnect()` to disconnect from an AP. It will return to Idle mode.
+  
+- **Access Point** (AP) mode\
+  Support only 1 client in AP mode.\
+  Support OPEN and WEP securities.\
+  STA/AP cannot co-exist.\
+  Use `m2m_wifi_enable_ap()` to enter AP mode.
+
+- **Peer to Peer** (P2P or WiFi Direct) mode\
+  Enable Wi-Fi devices to communicate without the use of dedicated access point.\
+  This process begins with a WiFi Direct device scanning for other WiFi Derect devices. When another device is discovered, the devices will negotiate which device will function as the Group Owner (GO). The GO functions very similarly to AP. Once the GO is established, the other devices in the P2P group, (known as Clients), are able to connect to the GO in the same manner that STA's connect to AP's. The role of GO cannot be transferred to one of the Clients in the group. If the GO leaves the P2P group, the group is destroyed and must be reformed in order for the devices to continue to communicate.\
+  ATWINC15x0-MR210xB is capable to operate as client in P2P mode only by calling `m2m_wifi_p2P()`.
+  
+  
+- **Monitoring mode** (Sniffer mode)\
+
+
 ## Power Consumption
 
 ATWINC15x0-MR210xB has several states:
@@ -139,12 +175,12 @@ ATWINC15x0-MR210xB is actively receiving an 802.11 signal. Lowest sensitivity an
 **ON_Doze**\
 ATWINC15x0-MR210xB is ON but is neither transmitting nor receiving.\
 `VDDIO` is ON and `CHIP_EN` is high.\
-Current consumption is < 10μ A from `VDDIO` pin.
+Current consumption is < 10 μA from `VDDIO` pin.
 
 **Power_Down**\
 ATWINC15x0-MR210xB core supply is off. Only leakage current is present.\
 `VDDIO` is ON and `CHIP_EN` is low.
-Current consumption is < 3.5μ A from `VDDIO` pin.
+Current consumption is < 3.5 μA from `VDDIO` pin.
 
 **IDLE_Connect**\
 ATWINC15x0-MR210xB is connected with 1 DTIM (Delivery Traffic Indication Map) beacon interval.\
