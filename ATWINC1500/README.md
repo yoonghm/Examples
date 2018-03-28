@@ -27,6 +27,25 @@ The references to the ATWINC15x0-MR210xB module include the module devices liste
 
 *Figure:* **ATWINC1500 Pins**
 
+## CPU and Memory Subsystems
+
+ATWINC15x0-MR210xB uses Cortus APS3 32-bit processor (CPU). The processor uses
+
+- 128 kB instruction/boot ROM
+- 160 kB instruction RAM
+-  64 kB data RAM
+- 4/8 MB flash memory which is used for system software
+- 128 kB shared RAM for processor and MAC
+- 768 bits non-volatile one-time-programmable (OTP) memory.
+
+### Non-volatile One-time-programmable (OTP) Memory
+
+ATWINC15x0-MR210xB have 768 bits of non-volatile eFuse memory that can be read by the CPU after device reset. This non-volatile TCP memory can be used to store customer-specific parameters, such as MAC address, various calibration information (such as Tx power, crystal frequency offset) and other software-specific configuration parameters.
+
+The efuse is partitioned into 6 128-bit banks.
+
+
+
 ## SPI Slave Interface
 
 ATWINC15x0-MR210xB provides a full-duplex slave Serial Peripheral Interface (SPI) to host (microcontroller) that can be used for control and for serial I/O of IEEE 802.11 data.  The pin 10 `SPI_CFG` must be tied to VDDIO via a 1 MΩ resistor.
@@ -72,7 +91,7 @@ ATWINC15x0-MR210xB provides several pins for GPIO, Wake, Interrupt, Enable and R
 |    11   | `WAKE`       | Host wake up ATWINC15x0-MR210xB from doze mode                    |
 |    13   | `IRQN`       | Output interrupt from ATWINC15x0-MR210xB to host                  |
 |    21   | `GPIO_1/RTC` | General purpose I/O / RTC                                         |
-|    22   | `CHIP_EN`    | Use 1-MΩ pull-up resistor to put module to active mode. A low place it to power-down mode |
+|    22   | `CHIP_EN`    | Use pull-up to put module to active mode, other power-down mode   |
 |    25   | `GPIO_3`     | General purpose I/O                                               |
 |    26   | `GPIO_4`     | General purpose I/O                                               |
 |    27   | `GPIO_5`     | General purpose I/O                                               |
