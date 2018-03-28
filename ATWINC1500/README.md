@@ -165,8 +165,6 @@ ATWINC15x0-MR210xB can function in the following modes:
 
 *Figure:* **ATWINC15x0-MR210xB Mode Transition Diagram**
 
-
-
 ## Power Consumption
 
 ATWINC15x0-MR210xB has several states:
