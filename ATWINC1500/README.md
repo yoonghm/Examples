@@ -33,3 +33,7 @@ ATWINC1500 provides a full-duplex slave Serial Peripheral Interface (SPI) that c
 |    16   | `SPI_SSN`  | SPI Slave Select, active low                                        |
 |    17   | `SPI_TXD`  | SPI MISO (Master In, Slave Out)                                     |
 |    18   | `SPI_CLK`  | SPI Clock                                                           |
+
+When the SPI is not selected (`SPI_SSN` is high), the SPI will not interfere with data transfers between master (host) and other SPI slave device in the same SPI bus.
+
+ATWINC1500 supports four standard SPI modes determined by Clock Priority (CPOL) and Clock Phase (CPHA) settings.
