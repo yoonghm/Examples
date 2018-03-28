@@ -161,7 +161,7 @@ ATWINC15x0-MR210xB can function in the following modes:
   User can configure filters so that only specific types of packets are passed to the application.\
   Call `m2m_wifi_enable_monitoring_mode()` to enter this mode.
 
-<img src="./ATWINC15x0-MR210xB_Mode_Transition.jpg" alt=Mode Transition Diagram" />
+<img src="./ATWINC15x0-MR210xB_Mode_Transition.png" alt=Mode Transition Diagram" />
 
 *Figure:* **ATWINC15x0-MR210xB Mode Transition Diagram**
 
