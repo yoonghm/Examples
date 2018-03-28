@@ -21,11 +21,16 @@ The references to the ATWINC15x0-MR210xB module include the module devices liste
 
 <img align="lect" src="./ATWINC15x0-MR210xB_Block_Diagram.jpg" alt="ATWINC1500 Block Diagram" />
 
-*Figure:* **ATWINC1500 Block Diagram**
+*Figure:* **ATWINC1500 block diagram**
 
 <img align="lect" src="./ATWINC15x0-MR210xB_Pins.jpg" alt="ATWINC1500 Pins" />
 
-*Figure:* **ATWINC1500 Pins**
+*Figure:* **ATWINC1500 pins**
+
+<img align="lect" src="./ATWINC15x0-MR210xB_Host.jpg" alt="Interface between ATWINC1500 and host microcontroller" />
+
+*Figure:* **Interface between ATWINC1500 and host microcontroller**
+
 
 ## CPU and Memory Subsystems
 
