@@ -11,7 +11,9 @@ The references to the ATWINC15x0-MR210xB module include the module devices liste
 - ATWINC1510-MR210UB (8 MB flash, OTA, uFL connector)
 
 <img align="lect" src="./ATWINC15x0-MR210xB_Block_Diagram.jpg" alt="ATWINC1500 Block Diagram" />
+
 **ATWINC1500 Block Diagram**
 
 <img align="lect" src="./ATWINC15x0-MR210xB_Pins.jpg" alt="ATWINC1500 Pins" />
+
 **ATWINC1500 Pins**
