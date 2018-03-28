@@ -21,19 +21,19 @@ The references to the ATWINC15x0-MR210xB module include the module devices liste
 - ATWINC1510-MR210PB (8 MB flash, OTA, PCB antenna)
 - ATWINC1510-MR210UB (8 MB flash, OTA, uFL connector)
 
-<img align="lect" src="./ATWINC15x0-MR210xB_Block_Diagram.jpg" alt="ATWINC1500 Block Diagram" />
+<img src="./ATWINC15x0-MR210xB_Block_Diagram.jpg" alt="ATWINC1500 Block Diagram" />
 
 *Figure:* **ATWINC1500 block diagram**
 
-<img align="lect" src="./ATWINC15x0-MR210xB_Pins.jpg" alt="ATWINC1500 Pins" />
+<img src="./ATWINC15x0-MR210xB_Pins.jpg" alt="ATWINC1500 Pins" />
 
 *Figure:* **ATWINC1500 pins**
 
-<img align="lect" src="./ATWINC15x0-MR210xB_Host.jpg" alt="Interface between ATWINC1500 and host microcontroller" />
+<img src="./ATWINC15x0-MR210xB_Host.jpg" alt="Interface between ATWINC1500 and host microcontroller" />
 
 *Figure:* **Interface between ATWINC1500 and host microcontroller**
 
-<img align="lect" src="./ATWINC15x0-MR210xB_Architecture.png" alt="ATWINC1500 System Architecture" />
+<img src="./ATWINC15x0-MR210xB_Architecture.png" alt="ATWINC1500 System Architecture" />
 
 *Figure:* **ATWINC1500 System Architecture**
 
@@ -56,7 +56,7 @@ The efuse is partitioned into 6 128-bit banks, which could be programmed indepen
 
 ATWINC15x0-MR210xB is programmed with MAC address and frequency offset, etc at Bank 0 in factory. User can program Bank 1 and invalidate Bank 0 so that new MAC address and frequency offset, etc could be read from Bank 1.
 
-<img align="lect" src="./ATWINC15x0-MR210xB_eFuse.jpg" alt="eFuse Bitmap" />
+<img src="./ATWINC15x0-MR210xB_eFuse.jpg" alt="eFuse Bitmap" />
 
 *Figure:* **eFuse Bitmap**
 
