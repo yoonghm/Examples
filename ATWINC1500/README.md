@@ -50,10 +50,9 @@ ATWINC15x0-MR210xB is programmed with MAC address and frequency offset, etc at B
 
 *Figure:* **eFuse Bitmap**
 
+### Interfaces
 
-
-
-## SPI Slave Interface
+### SPI Slave Interface
 
 ATWINC15x0-MR210xB provides a full-duplex slave Serial Peripheral Interface (SPI) to host (microcontroller) that can be used for control and for serial I/O of IEEE 802.11 data.  The pin 10 `SPI_CFG` must be tied to VDDIO via a 1 MΩ resistor.
 
@@ -65,20 +64,30 @@ ATWINC15x0-MR210xB provides a full-duplex slave Serial Peripheral Interface (SPI
 |    17   | `SPI_TXD`  | SPI MISO (Master In, Slave Out)                                     |
 |    18   | `SPI_CLK`  | SPI Clock                                                           |
 
-When the SPI is not selected (`SPI_SSN` is high), the SPI will not interfere with data transfers between master (host) and other SPI slave device in the same SPI bus.
+When the SPI is not selected (`SPI_SSN` is high), the SPI will not interfere with data transfers between master (host) and other SPI slave devices in the same SPI bus.
+
+`SPI_SSN`, `SPI_MOSI`, `SPI_MISO` and `SPI_SCK` pins have internal programmable pull-up resistors. The resistors should be programmed to be disabled.  Otherwise, if any of the SPI pins are driven to a low level while ATWINC15x0-MR210xB is in the low power sleep stage, current will flow from the VDDIO supply through the pull-up resistors, hence increse current consumption during low power sleep mode.
 
 ATWINC15x0-MR210xB supports four standard SPI modes determined by Clock Priority (CPOL) and Clock Phase (CPHA) settings.
 
-## UART Interface
+### UART Interface
 
-ATWINC15x0-MR210xB support Universal Asynchronous Receiver/Transmitter (UART) interface. This interface should be used for **debug purpose** only.
+ATWINC15x0-MR210xB supports Universal Asynchronous Receiver/Transmitter (UART) interface as DTE. This interface should be used for **debug purpose** only.
 
 | Pin No. | Name       | Description                                                         |
 |:-------:|:----------:|:--------------------------------------------------------------------|
 |    14   | `UART_TXD` | UART Transmit. Output from ATWINC15x0-MR210xB                       |
 |    19   | `UART_RXD` | UART Receive. Input to ATWINC15x0-MR210xB                           |
 
-## I2C Interface (In Development)
+The default UART configuration is:
+
+- Baud rate: 115200
+- Data: 8 bit
+- Parity: None
+- Stop bit: 1 bit
+- Flow control: None
+
+### I2C Interface (In Development)
 
 ATWINC15x0-MR210xB provides I2C interfacw which is still under development as in March 2018.
 
@@ -87,7 +96,7 @@ ATWINC15x0-MR210xB provides I2C interfacw which is still under development as in
 |     2   | `I2C_SCL ` | I2C Slave clock. Under development                                  |
 |     3   | `I2C_SDA`  | I2C Slave Data. Under Development                                   |
 
-## Other Interface Pins
+### Other Interface Pins
 
 ATWINC15x0-MR210xB provides several pins for GPIO, Wake, Interrupt, Enable and Reset.
 
@@ -102,3 +111,24 @@ ATWINC15x0-MR210xB provides several pins for GPIO, Wake, Interrupt, Enable and R
 |    25   | `GPIO_3`     | General purpose I/O                                               |
 |    26   | `GPIO_4`     | General purpose I/O                                               |
 |    27   | `GPIO_5`     | General purpose I/O                                               |
+
+## Power Consumption
+
+ATWINC15x0-MR210xB has several states:
+
+**ON_TRANSMIT**\
+ATWINC15x0-MR210xB is actively transmitting an 802.11 signal. Highest output power and nominal current consumption.
+
+**ON_Receive**\
+ATWINC15x0-MR210xB is actively receiving an 802.11 signal. Lowest sensitivity and nominal current consumption.
+
+**ON_Doze**\
+ATWINC15x0-MR210xB is ON but is neither transmitting nor receiving.
+
+**Power_Down**\
+ATWINC15x0-MR210xB core supply is off. Only leakage current is present.
+
+**IDLE_Connect**\
+ATWINC15x0-MR210xB is connected with 1 DTIM (Delivery Traffic Indication Map) beacon interval.
+
+
