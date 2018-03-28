@@ -42,7 +42,14 @@ ATWINC15x0-MR210xB uses Cortus APS3 32-bit processor (CPU). The processor uses
 
 ATWINC15x0-MR210xB have 768 bits of non-volatile eFuse memory that can be read by the CPU after device reset. This non-volatile TCP memory can be used to store customer-specific parameters, such as MAC address, various calibration information (such as Tx power, crystal frequency offset) and other software-specific configuration parameters.
 
-The efuse is partitioned into 6 128-bit banks.
+The efuse is partitioned into 6 128-bit banks, which could be programmed independently. Each bank has the same bitmap. The purpose of the first 80 bits in each bank is fixe, and the remaining 48 bits are used by application.
+
+ATWINC15x0-MR210xB is programmed with MAC address and frequency offset, etc at Bank 0 in factory. User can program Bank 1 and invalidate Bank 0 so that new MAC address and frequency offset, etc could be read from Bank 1.
+
+<img align="lect" src="./ATWINC15x0-MR210xB_eFuse.jpg" alt="eFuse Bitmap" />
+
+*Figure:* **eFuse Bitmap**
+
 
 
 
