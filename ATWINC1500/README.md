@@ -194,4 +194,7 @@ ATWINC15x0-MR210xB is connected with 1 DTIM (Delivery Traffic Indication Map) be
 **Power_Off**\
 DC/DC converter output and `VDDIO` pins are at ground potential.
 
-[1] https://eewiki.net/display/Wireless/Getting+Started+with+the+Atmel+Winc1500+Wi-Fi+Network+Controller
+[1] http://ww1.microchip.com/downloads/en/DeviceDoc/70005304B.pdf
+[2] https://eewiki.net/display/Wireless/Getting+Started+with+the+Atmel+Winc1500+Wi-Fi+Network+Controller
+[3] https://eewiki.net/download/attachments/49414419/WINC1500-Software-Design-Guide_UserGuide.pdf
+
