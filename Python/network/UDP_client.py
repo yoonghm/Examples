@@ -24,9 +24,9 @@ ip        = socket.gethostbyname(hostname)
 net       = ipaddress.IPv4Network(ip + '/' + netmask, False)
 broadcast = str(net.broadcast_address)
 
-print('hostname   : {}'.format(hostname))
-print('ip address : {}'.format(ip))
-print('broadcast  : {}'.format(broadcast))
+print('Hostname          : {}'.format(hostname))
+print('IP Address        : {}'.format(ip))
+print('Broadcast Address : {}'.format(broadcast))
 
 # Create UDP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
