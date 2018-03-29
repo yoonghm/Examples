@@ -19,7 +19,6 @@ netmask   = '255.255.255.0'
 
 hostname  = socket.gethostname()
 ip        = socket.gethostbyname(hostname)
-# ip can also be obtained using ipaddress.IPv4Address()
 
 net       = ipaddress.IPv4Network(ip + '/' + netmask, False)
 broadcast = str(net.broadcast_address)
