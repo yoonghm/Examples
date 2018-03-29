@@ -18,3 +18,7 @@ sock.bind(('', port))
 bytes, address,  = sock.recvfrom(1024)
 
 print('Received {0} from {1}:{2}'.format(bytes, address[0], address[1]))
+
+# Close socket
+sock.close()
+
