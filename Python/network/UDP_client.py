@@ -35,3 +35,6 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
 # Send byte of strings to destination
 sock.sendto(b'Hello world', (broadcast, port))
+
+# Close socket
+sock.close()
