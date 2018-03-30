@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 
 ## Description
-# Broadcast a text message to port=port in its current network
+# Send a broadcast message to port=port in its current network
 #
 import socket
 import ipaddress
+
+port      = 12345
+netmask   = '255.255.255.0'
+
+hostname  = socket.gethostname()
+ip        = socket.gethostbyname(hostname)
 
 # Broadcast address is obtained by combining:
 # network address part and inverse of netmask
@@ -13,13 +19,9 @@ import ipaddress
 #    Inversed of netmask =   0.  0. 0.255
 #      Broadcast address = 192.168.56.255
 # Use ipaddress standard library to do the work
-
-port      = 12345
-netmask   = '255.255.255.0'
-
-hostname  = socket.gethostname()
-ip        = socket.gethostbyname(hostname)
-
+#
+# It is not necessary to obtain broadcast address as Python
+# provides special string '<broadcast>' for this purpose.
 net       = ipaddress.IPv4Network(ip + '/' + netmask, False)
 broadcast = str(net.broadcast_address)
 
@@ -34,7 +36,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
 # Send byte of strings to destination
-sock.sendto(b'Hello world', (broadcast, port))
+sock.sendto(b'Hello world', ('<broadcast>', port))
 
 # Close socket
 sock.close()
