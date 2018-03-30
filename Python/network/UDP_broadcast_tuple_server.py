@@ -10,7 +10,6 @@
 import socket
 import time
 import struct
-import random
 
 import msg_struct
 
@@ -23,7 +22,6 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Listen to port `port` at addresses
 sock.bind(('', port))
-
 
 # Set timeout to `timeout` seconds if there is no activity
 sock.settimeout(timeout)
