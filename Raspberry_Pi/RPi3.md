@@ -104,14 +104,44 @@ Using `sudo raspi-config` to make the following changes:
 
 ### Set time synchronization server
 
+We do not need fake-hwclock from the distribution, we can delete it to save space:
+<pre>
+$ <b>sudo systemctl stop fake-hwclock</b>
+$ <b>sudo apt-get -y remove fake-hwclock</b>
+$ <b>sudo apt-get -y purge fake-hwclock</b>
+</pre>
+
 Edit `/etc/systemd/timesyncd.conf`
 
 ```
-#NP’s NTP server: 153.20.80.88 153
-#time.windows.com: 52.163.118.68
-NTP=153.20.80.88 153.20.81.88
-FallbackNTP=52.163.118.68
+#153.20.80.88 153.20.81.88 are NP's NTP servers
+NTP=153.20.80.88 153.20.81.88 0.debian.pool.ntp.org 1.debian.pool.ntp.org 2.debian.pool.ntp.org 3.debian.pool.ntp.org
+FallbackNTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org 2.debian.pool.ntp.org 3.debian.pool.ntp.org
 ```
+
+To re-run `systemd-timesyncd`
+
+<pre>
+$ <b>sudo systemctl restart systemd-timesyncd</b>
+$ <b>sudo systemctl daemon-reload</b>
+$ <b></b>
+$ <b></b>
+</pre>
+
+Check the time status 
+
+<pre>
+$ <b>timedatectl status</b>
+      Local time: Fri 2018-03-30 11:34:32 +08
+  Universal time: Fri 2018-03-30 03:34:32 UTC
+        RTC time: n/a
+       Time zone: Asia/Singapore (+08, +0800)
+ Network time on: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+</pre>
+
+The above output shows that network time is on and is syhchronized.  There is no real-time clock with RPi3.
 
 ### Update Raspbian, Install Necessary Pacakges and Clean Up Obsolete Packages
 
