@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 ## Description
-# Send a broadcast message to port=port in its current network
+# Broadcast a text message to port=port in its current network
 #
 import socket
 import ipaddress
