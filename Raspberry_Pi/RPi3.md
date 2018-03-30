@@ -122,10 +122,8 @@ FallbackNTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org 2.debian.pool.ntp.org 3.
 To re-run `systemd-timesyncd`
 
 <pre>
-$ <b>sudo systemctl restart systemd-timesyncd</b>
-$ <b>sudo systemctl daemon-reload</b>
-$ <b></b>
-$ <b></b>
+$ <b>sudo sudo systemctl restart systemd-timesyncd</b>
+$ <b>sudo sudo systemctl daemon-reload</b>
 </pre>
 
 Check the time status 
