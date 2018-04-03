@@ -10,7 +10,7 @@ It provides SPI slave interface with a slave master (another microcontroller).
 
 It provides UART interface with a host controller (another micontroller or PC).
 
-It support WPA/WPA2 personal, WPA Enterpeise, TLS security protocols. it provides DHCP, DNS, TCP/IP (IPv4), UDP, HTTP and HTTPS network protocols.
+It supports WPA/WPA2 personal, WPA/WPA2 Enterpeise, TLS security protocols. it provides DHCP, DNS, TCP/IP (IPv4), UDP, HTTP and HTTPS network protocols.
 
 It is able to operate up to 7 TCP sockets (as client or server) and up to 4 UDP sockets (client or server).
 
@@ -18,6 +18,7 @@ When it is in AP (Access Point) mode, it supports OPEN and WEP securities and al
 
 AP and STA modes cannot co-exist.
 
+P2P was removed in firmware version 19.5.4.
 The references to the ATWINC15x0-MR210xB module include the module devices listed in the following:
 
 - ATWINC1500-MR210PB (4 MB flash, OTA, PCB antenna)
@@ -125,7 +126,7 @@ ATWINC15x0-MR210xB provides several pins for GPIO, Wake, Interrupt, Enable and R
 |    11   | `WAKE`       | Host wake up ATWINC15x0-MR210xB from doze mode                    |
 |    13   | `IRQN`       | Output interrupt from ATWINC15x0-MR210xB to host                  |
 |    21   | `GPIO_1/RTC` | General purpose I/O / RTC                                         |
-|    22   | `CHIP_EN`    | Use pull-up to put module to active mode, other power-down mode   |
+|    22   | `CHIP_EN`    | Use pull-up to put module to active mode, otherwise power-down mode|
 |    25   | `GPIO_3`     | General purpose I/O                                               |
 |    26   | `GPIO_4`     | General purpose I/O                                               |
 |    27   | `GPIO_5`     | General purpose I/O                                               |
