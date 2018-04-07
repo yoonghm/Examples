@@ -7,8 +7,13 @@ tokens = ((kvp.split(':') for kvp in line.split(';')))
 
 print(tokens)
 '''
+<generator object <genexpr> at 0x7f1c29281eb8>
+'''
+
+'''
 tokens is a generator expression. 
-It could be converted to list, tuple or dictionary ONCE
+It could be converted to list, tuple or dictionary 
+but only ONCE
 '''
 
 print(list(tokens))
