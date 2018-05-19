@@ -19,6 +19,9 @@ stud1 = Student(1,'Tan Ah Kau','123456')
 json1 = json.dumps(stud1.__dict__, separators=(',', ':'))
 print(json)
 
+j = json.loads('{"password": "222222", "id": 2, "name": "Bryan"}')
+stud2 = Student(**j)
+
 '''
 2
 {"password":"123456","id":1,"name":"Tan Ah Kau"}
