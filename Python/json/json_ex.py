@@ -14,7 +14,7 @@ stud1 = Student(1,'Tan Ah Kau','123456')
 
 # Convert Python object to JSON object
 json1 = json.dumps(stud1.__dict__, separators=(',', ':'))
-print(json)
+print(json1)
 
 j = json.loads('{"password": "222222", "id": 2, "name": "Bryan"}')
 stud2 = Student(**j)
