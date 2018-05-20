@@ -17,10 +17,10 @@ json1 = json.dumps(stud1.__dict__, separators=(',', ':'))
 print(json1)
 
 stud2 = Student(**json.loads('{"password":"222222","id":2,"name":"Bryan"}'))
-print(stud2)
+print(stud2.name)
 
-'''
+"""
 2
-{"name":"Tan Ah Kau","id":1,"password":"123456"}                                               
-<__main__.Student object at 0x7fa702610828>     
-'''
+{"id":1,"name":"Tan Ah Kau","password":"123456"}
+Bryan
+"""
