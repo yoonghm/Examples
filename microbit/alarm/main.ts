@@ -42,7 +42,7 @@ function animate_LEDs()  {
     }
     for (let i = 0; i <= 25 - 1; i++) {
         y = Math.floor(i / 5)
-x = i % 5
+        x = i % 5
         led.unplot(x, y)
         basic.pause(200)
         // If user interrupts the timer, return immediately
