@@ -44,7 +44,7 @@ function animate_LEDs()  {
         y = Math.floor(i / 5)
         x = i % 5
         led.unplot(x, y)
-        basic.pause(200)
+        basic.pause(2400)
         // If user interrupts the timer, return immediately
         if (start == 0) {
             music.beginMelody(["g5:2"], MelodyOptions.Once)
