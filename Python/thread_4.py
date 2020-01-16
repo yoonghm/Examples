@@ -29,6 +29,10 @@ if __name__ == '__main__':
         t = threading.Thread(target=f)
         t.start()
 
+    logging.debug(f'Total active thread = {threading.active_count()}')
+    time.sleep(5)
+    logging.debug(f'Total active thread = {threading.active_count()}')
+
     main_thread = threading.main_thread()
     for t in threading.enumerate():
         if t is not main_thread:
