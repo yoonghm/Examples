@@ -1,0 +1,180 @@
+                    <meta charset="utf-8" emacsmode="-*- markdown -*">
+                            **ROS Guide**
+
+
+The documentation is based on *ROS melodic*.
+
+
+Concepts
+===============================================================================
+
+**Node**
+:   An executable that is connected to the ROS network.
+
+
+
+Quick Guide
+===============================================================================
+
+```bash
+mkdir -p <ws_name>/src
+cd ~/<ws_name>/src
+catkin_create_pkg <pkg_name> roscpp rospy std_msgs
+cd ~/<ws_name>
+catkin_make
+source ~/<ws_name>/devel/setup.bash
+```
+
+
+Useful Commands
+===============================================================================
+
+`rospack list`
+:   List installed packages
+
+`rosrun <pkg_name> <nodes>`
+:   Run `pkg_name` at `nodes`
+
+`roslaunch <pkg_name> <launch_file>`
+:   Run `pkg_name` using `launch_file`
+
+`rostopic list`
+:   List available topics
+
+`rospack depends1 <dependency>`
+:   List the dependencies of a given dependency
+
+`rospack depends <package>`
+:   List the dependencies of a given package
+
+
+Publish-Subscribe Examples
+===============================================================================
+
+
+Prepare Folder and Structure for The Code
+-------------------------------------------------------------------------------
+
+```bash
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+catkin_create_pkg beginner_tutorials roscpp rospy std_msgs
+cd ~/catkin_ws
+catkin_make
+source ~/catkin_ws/devel/setup.bash
+roscd beginner_tutorials
+mkdir scripts
+cd scripts
+```
+
+Publisher - `talker`
+-------------------------------------------------------------------------------
+
+Get the publisher node (`talker`) from
+
+```bash
+wget https://raw.github.com/ros/ros_tutorials/kinetic-devel/rospy_tutorials/001_talker_listener/talker.py
+chmod +x talker.py
+```
+
+```Python
+#!/usr/bin/env python
+
+import rospy
+from std_msgs.msg import String
+
+
+def talker():
+    pub = rospy.Publisher('chatter', String, queue_size=10)
+    rospy.init_node('talker', anonymous=True)
+    rate = rospy.Rate(1) # 10hz
+    while not rospy.is_shutdown():
+        hello_str = f"hello world {rospy.get_time()}"
+        rospy.loginfo(hello_str)
+        pub.publish(hello_str)
+        rate.sleep()
+
+if __name__ == '__main__':
+    try:
+        talker()
+    except rospy.ROSInterruptException:
+        pass
+```
+
+
+Subscriber - `listener`
+-------------------------------------------------------------------------------
+
+Get the subscriber node (`listener`) from
+
+```bash
+wget https://raw.github.com/ros/ros_tutorials/kinetic-devel/rospy_tutorials/001_talker_listener/listener.py
+chmod +x listener.py
+```
+
+```Python
+#!/usr/bin/env python
+
+import rospy
+from std_msgs.msg import String
+
+
+def callback(data):
+    rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
+    
+def listener():
+
+    # In ROS, nodes are uniquely named. If two nodes with the same
+    # name are launched, the previous one is kicked off. The
+    # anonymous=True flag means that rospy will choose a unique
+    # name for our 'listener' node so that multiple listeners can
+    # run simultaneously.
+    rospy.init_node('listener', anonymous=True)
+
+    rospy.Subscriber("chatter", String, callback)
+
+    # spin() simply keeps python from exiting until this node is stopped
+    rospy.spin()
+
+if __name__ == '__main__':
+    listener()
+```
+
+`CMakeLists.txt`
+-------------------------------------------------------------------------------
+
+Update `CMakeLists.txt` of the packages with these two scripts:
+
+```cmake
+catkin_install_python(PROGRAMS scripts/talker.py scripts/listener.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+```
+
+Running The Publisher and Subscriber Nodes
+-------------------------------------------------------------------------------
+
+Open one terminal and source the `setup.bash`, and run `roscore`:
+
+```bash
+source ~/catkin_ws/devel/setup.bash
+roscore
+```
+
+Open one terminal and run the publisher
+
+```bash
+source ~/catkin_ws/devel/setup.bash
+rosrun beginner_tutorials talker.py 
+```
+
+
+Open one terminal and run the publisher
+
+```bash
+source ~/catkin_ws/devel/setup.bash
+rosrun beginner_tutorials listener.py 
+```
+
+<!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
+
