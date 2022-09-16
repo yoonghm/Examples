@@ -87,7 +87,7 @@ from std_msgs.msg import String
 def talker():
     pub = rospy.Publisher('chatter', String, queue_size=10)
     rospy.init_node('talker', anonymous=True)
-    rate = rospy.Rate(1) # 10hz
+    rate = rospy.Rate(1) # 1hz
     while not rospy.is_shutdown():
         hello_str = f"hello world {rospy.get_time()}"
         rospy.loginfo(hello_str)
@@ -175,6 +175,82 @@ Open one terminal and run the publisher
 source ~/catkin_ws/devel/setup.bash
 rosrun beginner_tutorials listener.py 
 ```
+
+
+Package `std_msgs` - Standard ROS Messages
+===============================================================================
+
+ROS nodes communicate with one anther via **messages**. **Standard ROS Messages** `std_msgs` containts wrappers for 
+one ore more fields which are of:
+
++ Standard primitive types (such as bool, int8, uint8, int16, uint16, int32, uint32, int64, uint64, float32, float64, string, time, duration)
++ Arrays of those primitive types
++ Empty type, which is useful for sending an empty signal but not recommended.
+
+Standard field name is `data`.
+
+Format of a message or a standard ROS message is described using **message description specification** file, with extension `msg`.
+
+Primitive Type | Serialization       | C++          | Python            
+---------------|---------------------|--------------|:------------------
+`bool`         | unsigned 8-bit int  | `uint8_t`    | `bool`
+`int8`         | signed 8-bit int    | `int8_t`     | `int`
+`uint8`        | unsigned 8-bit int  | `uint8_t`    | `int`
+`int16`        | signed 16-bit int   | `int16_t`    | `int`
+`uint16`       | unsigned 16-bit int | `uint16_t`   | `int`
+`int32`        | signed 32-bit int   | `int32_t`    | `int`
+`uint32`       | unsigned 32-bit int | `uint32_t`   | `int`
+`int64`        | signed 64-bit int   | `int64_t`    | `int`
+`uint64`       | unsigned 64-bit int | `uint64_t`   | `int`
+`float32`      | 32-bit IEEE float   | `float`      | `float`
+`float32`      | 32-bit IEEE float   | `float`      | `rospy.Time`
+`string`       | ASCII string        | `std::string`| `rosypy.Duration`
+[Table [Table_ix]: Standard primitive types]
+
+
+Each field starts on a new line and consists of a type and a name, separated by a space.
+
+```
+bool data
+```
+[Listing [listing_ix]: `std_msgs/msg/Bool.msg`]
+
+```
+byte data
+```
+[Listing [listing_ix]: `std_msgs/msg/Byte.msg`]
+
+```
+byte[] data
+```
+[Listing [listing_ix]: `std_msgs/msg/ByteMultiArray.msg`]
+
+```
+byte[] data
+```
+[Listing [listing_ix]: `std_msgs/msg/ByteMultiArray.msg`]
+
+```
+float32 r
+float32 g
+float32 b
+float32 a
+```
+[Listing [listing_ix]: `std_msgs/msg/ColorRGBA.msg`]
+
+```
+time data
+```
+[Listing [listing_ix]: `std_msgs/msg/Time.msg`]
+
+
+```
+unit32 seq
+time stamp
+string frame_id
+```
+[Listing [listing_ix]: `std_msgs/msg/Header.msg`]
+
 
 <!-- Markdeep: --><style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style><script src="markdeep.min.js" charset="utf-8"></script><script src="https://morgan3d.github.io/markdeep/latest/markdeep.min.js?" charset="utf-8"></script><script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
 
